@@ -1,0 +1,8 @@
+{
+  "emscripten": "6.0.9",
+  "inputsSha256": "fd82076fd1c9a149195a9ba60c0ef1c0ec4b0ab4374f50a79c628aa47445ce82",
+  "sha256": {
+    "woff1": "c832bed102ec691bc601305032b3d35208d0916fe77462908758592a47ed7b13",
+    "woff2": "722e8daff7f11f907f3e89bc656c17e7e56cbf1ecf75ea090d2a5b3ae13e63b9"
+  }
+}

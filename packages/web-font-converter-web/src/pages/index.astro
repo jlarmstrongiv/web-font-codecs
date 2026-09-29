@@ -1,0 +1,32 @@
+---
+import { createElement } from 'react';
+import { renderToString } from 'react-dom/server';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import Converter from '../components/Converter.tsx';
+// Match vector-shard's Astro demo: prerender the React island and inline its
+// Ant Design styles so the page is styled and readable before hydration.
+const styleCache = createCache();
+renderToString(createElement(StyleProvider, { cache: styleCache }, createElement(Converter)));
+const antdStyles = extractStyle(styleCache);
+const title = 'Web font converter';
+const description = 'Convert TTF/OTF, WOFF and WOFF2 fonts privately in your browser.';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f5f5" />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <title>{title}</title>
+    <Fragment set:html={antdStyles} />
+  </head>
+  <body><Converter client:load /><noscript><p style="padding: 24px">Enable JavaScript to convert fonts locally in your browser.</p></noscript></body>
+</html>
+<style is:global>
+  html { scrollbar-gutter: stable; }
+  html, body { margin: 0; padding: 0; background: #f5f5f5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+</style>

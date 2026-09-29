@@ -1,0 +1,46 @@
+{
+  "name": "web-font-codecs-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": "24.21.0",
+    "npm": "12.0.2"
+  },
+  "scripts": {
+    "build:wasm": "node scripts/build-wasm.ts",
+    "build": "npm run build:wasm && node scripts/build.ts",
+    "build:ts": "node scripts/build.ts",
+    "typecheck": "tsc -p tsconfig.json && npm run typecheck --workspace web-font-converter-web",
+    "test": "node --conditions=web-font-codecs:source --test test/*.test.ts",
+    "test:pack": "node scripts/pack-consumer.ts",
+    "test:reference": "node scripts/reference-test.ts",
+    "web:dev": "npm run dev --workspace web-font-converter-web",
+    "web:build": "npm run build --workspace web-font-converter-web",
+    "test:browser": "node scripts/browser-test.ts",
+    "test:live": "node scripts/live-browser-test.ts",
+    "check": "node scripts/check.ts",
+    "check:source": "node scripts/check-source.ts",
+    "check:records": "node --conditions=web-font-codecs:source scripts/check-records.ts",
+    "browsers:install": "playwright install chromium firefox webkit",
+    "benchmark": "node --conditions=web-font-codecs:source scripts/benchmark.ts"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.4",
+    "playwright": "1.63.0",
+    "rolldown": "1.2.8",
+    "rolldown-plugin-dts": "0.28.5",
+    "typescript": "7.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlarmstrongiv/web-font-codecs.git"
+  },
+  "homepage": "https://jlarmstrongiv.github.io/web-font-codecs/",
+  "bugs": {
+    "url": "https://github.com/jlarmstrongiv/web-font-codecs/issues"
+  }
+}

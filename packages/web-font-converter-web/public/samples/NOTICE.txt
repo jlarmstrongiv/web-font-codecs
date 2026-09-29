@@ -1,0 +1,22 @@
+Demo font samples - Apache License 2.0
+
+OpenSans-Regular.ttf: Open Sans 1.10, copyright 2010-2011 Google Corporation.
+Obtained from the W3C EPUBCheck test corpus (resources-cmt-font-opentype-valid).
+
+Rochester.otf: Rochester 1.005, copyright 2010 Font Diner, Inc. DBA Sideshow.
+Obtained from the Web Platform Tests font-loading resources.
+
+The original TTF and OTF fonts are redistributed unmodified from this
+repository's test fixtures. OpenSans-Regular.woff and OpenSans-Regular.woff2
+are repackaged versions of that same Open Sans TTF, generated using this
+repository's woff1-codec (Mozilla) and woff2-codec (Google), respectively.
+WOFF2 uses quality 11 and lossless table transforms; glyph outlines are preserved.
+The generated containers are not original upstream font files.
+
+Regenerate: npm run samples:build --workspace web-font-converter-web
+The adjacent provenance.json records source/derived SHA-256 hashes and the
+codec WASM hashes used for the build.
+Their embedded name tables identify the Apache License 2.0. The complete license
+is supplied alongside this notice as LICENSE-APACHE-2.0.txt.
+
+These sample files are served locally by the demo, with no third-party requests.

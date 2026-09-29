@@ -1,0 +1,57 @@
+name: Release and deploy tagged version
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+# Serialize complete releases; never cancel one that may already be publishing.
+concurrency:
+  group: release-and-pages
+  cancel-in-progress: false
+jobs:
+  validate:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    uses: ./.github/workflows/check.yml
+    with:
+      release-artifacts: true
+  release:
+    needs: validate
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c # v4.3.0
+        with:
+          version: 2026.9.7
+          install: false
+          cache: false
+      - run: mise install node
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: release-assets
+          path: .cache/release-assets
+      - name: Publish verified GitHub Release assets
+        run: mise exec -- node scripts/publish-github-release.ts
+        env:
+          GH_TOKEN: ${{ github.token }}
+  pages:
+    needs: [validate, release]
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the tested tagged site
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

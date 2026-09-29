@@ -1,0 +1,10 @@
+node_modules/
+**/dist/
+.cache/
+agent-docs/
+.DS_Store
+*.tgz
+packages/web-font-converter-web/.astro/
+packages/*/upstream-source/
+/packages/woff1-codec/wasm/codec.wasm
+/packages/woff2-codec/wasm/codec.wasm

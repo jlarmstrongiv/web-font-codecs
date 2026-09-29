@@ -1,0 +1,17 @@
+.converter-shell { max-width: 960px; margin: 0 auto; padding: 24px 16px 48px; }
+.converter-header { margin-bottom: 28px; }
+.converter-header h1.ant-typography { font-size: clamp(26px, 4vw, 36px); letter-spacing: -.025em; }
+.drop-content { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 22px 12px; }
+.font-name { max-width: 100%; overflow-wrap: anywhere; }
+.format-description { margin-top: 12px; }
+.converter-feedback:not(:empty) { margin-top: 20px; }
+.result-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.result-heading > div { min-width: 0; flex: 1 1 240px; }
+.result-heading .ant-btn { max-width: 100%; height: auto; min-height: 40px; white-space: normal; overflow-wrap: anywhere; }
+.converter-shell footer { margin-top: 24px; padding: 12px 0; }
+@media (max-width: 575px) { .converter-shell { padding: 24px 16px; } .converter-shell .ant-card-body { padding: 20px; } }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* Match EPUBCheck's quiet Advanced options disclosure and expanded spacing. */
+.advanced-options-collapse.ant-collapse > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box { padding-bottom: 20px; }

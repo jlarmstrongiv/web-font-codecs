@@ -1,0 +1,38 @@
+{
+  "name": "web-font-converter-web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "tsc -p tsconfig.json && astro build",
+    "typecheck": "tsc -p tsconfig.json",
+    "preview": "astro preview",
+    "samples:build": "node --conditions=web-font-codecs:source ../../scripts/build-demo-samples.ts"
+  },
+  "dependencies": {
+    "@ant-design/cssinjs": "2.1.2",
+    "@ant-design/icons": "6.3.4",
+    "@astrojs/react": "6.0.5",
+    "antd": "6.6.4",
+    "astro": "7.3.2",
+    "pretty-bytes": "7.1.3",
+    "pretty-ms": "9.3.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "web-font-converter": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlarmstrongiv/web-font-codecs.git",
+    "directory": "packages/web-font-converter-web"
+  },
+  "homepage": "https://jlarmstrongiv.github.io/web-font-codecs/",
+  "bugs": {
+    "url": "https://github.com/jlarmstrongiv/web-font-codecs/issues"
+  }
+}

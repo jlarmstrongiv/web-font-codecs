@@ -1,0 +1,15 @@
+[submodule "vendor/woff1"]
+	path = vendor/woff1
+	url = https://github.com/bramstein/sfnt2woff-zopfli
+[submodule "vendor/woff2"]
+	path = vendor/woff2
+	url = https://github.com/google/woff2
+[submodule "vendor/brotli"]
+	path = vendor/brotli
+	url = https://github.com/google/brotli
+[submodule "vendor/zlib"]
+	path = vendor/zlib
+	url = https://github.com/madler/zlib
+[submodule "vendor/zopfli"]
+	path = vendor/zopfli
+	url = https://github.com/google/zopfli

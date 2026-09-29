@@ -1,0 +1,46 @@
+{
+  "name": "web-font-codecs",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Shared types, validation and WebAssembly runtime for web font codecs.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": {
+      "types": {
+        "web-font-codecs:source": "./src/index.ts",
+        "default": "./dist/index.d.ts"
+      },
+      "web-font-codecs:source": "./src/index.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "dist",
+    "wasm",
+    "LICENSE",
+    "THIRD-PARTY-NOTICES.md",
+    "README.md",
+    "upstream-source",
+    "LICENSING.md"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "node ../../scripts/build.ts web-font-codecs",
+    "prepack": "node ../../scripts/build.ts web-font-codecs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlarmstrongiv/web-font-codecs.git",
+    "directory": "packages/web-font-codecs"
+  },
+  "homepage": "https://jlarmstrongiv.github.io/web-font-codecs/",
+  "bugs": {
+    "url": "https://github.com/jlarmstrongiv/web-font-codecs/issues"
+  }
+}

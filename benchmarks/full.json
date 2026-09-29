@@ -1,0 +1,2938 @@
+{
+  "schemaVersion": 1,
+  "profile": "full",
+  "repeats": 7,
+  "startedAt": "2026-09-28T15:01:03.977Z",
+  "completedAt": "2026-09-28T15:06:14.837Z",
+  "environment": {
+    "node": "v24.21.0",
+    "v8": "13.6.233.17-node.53"
+  },
+  "build": {
+    "emscripten": "6.0.9",
+    "inputsSha256": "15a49f53179ec7d810136fcc2e1a213eb11500abda78b430915edd93fdfa8ec0",
+    "sha256": {
+      "woff1": "51e7e04cae6a4cf50baed8a487000d51b07415c59e0c367d1e7ed47fc3254e65",
+      "woff2": "c1aee7ccbbba124d082bcb655724a6eab454f7b368bbb11e0b77d18e66326f4e"
+    }
+  },
+  "wasm": [
+    {
+      "name": "woff1-codec",
+      "bytes": 122588,
+      "sha256": "51e7e04cae6a4cf50baed8a487000d51b07415c59e0c367d1e7ed47fc3254e65"
+    },
+    {
+      "name": "woff2-codec",
+      "bytes": 809779,
+      "sha256": "c1aee7ccbbba124d082bcb655724a6eab454f7b368bbb11e0b77d18e66326f4e"
+    }
+  ],
+  "upstreamSources": {
+    "woff1": {
+      "url": "https://github.com/bramstein/sfnt2woff-zopfli",
+      "revision": "64833aa89615b59b25f887443dfd344f24bbe3dc",
+      "notes": "Initial import of Mozilla/Jonathan Kew's original zlib-based WOFF codec, before any Zopfli modifications.",
+      "license": "MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later",
+      "distributionOption": "MPL-1.1"
+    },
+    "woff2": {
+      "url": "https://github.com/google/woff2",
+      "revision": "fb9c3379f2605b10f3e8f1d9636664ab5576775c",
+      "license": "MIT",
+      "notes": "Latest upstream commit as of 2026-09-28; includes 2026 bounds/overflow fixes absent from the last tagged release v1.0.2 (2017-11-13).",
+      "date": "2026-06-29T17:04:31Z"
+    },
+    "brotli": {
+      "url": "https://github.com/google/brotli",
+      "revision": "028fb5a23661f123017c060daa546b55cf4bde29",
+      "license": "MIT",
+      "notes": "Latest eligible stable release; deliberately replaces the WOFF2 repository's stale 2018 Brotli submodule. Native/WASM reference parity validates compatibility.",
+      "tag": "v1.2.0",
+      "date": "2025-10-27T16:03:32Z"
+    },
+    "zlib": {
+      "url": "https://github.com/madler/zlib",
+      "revision": "da607da739fa6047df13e66a2af6b8bec7c2a498",
+      "tag": "v1.3.2",
+      "license": "Zlib",
+      "date": "2026-02-17T15:12:43Z"
+    },
+    "emscripten": {
+      "version": "6.0.9",
+      "url": "https://github.com/emscripten-core/emscripten/tree/6.0.9",
+      "license": "MIT OR NCSA",
+      "date": "2026-09-01T06:25:34Z"
+    },
+    "zopfli": {
+      "url": "https://github.com/google/zopfli",
+      "tag": "zopfli-1.0.3",
+      "commit": "bd64b2f0553d4f1ef4e6627647c5d9fc8c71ffc0",
+      "releasedAt": "2019-11-27T22:56:36Z",
+      "license": "Apache-2.0",
+      "modifications": "None; original Google C encoder, PNG tools not built."
+    }
+  },
+  "corpusProvenance": {
+    "fontTools": {
+      "version": "4.65.0",
+      "revision": "656f89dbf2026a7225aafba4fa11218210a765f5",
+      "releasedAt": "2026-09-10T16:24:26Z"
+    },
+    "records": [
+      {
+        "name": "variable-truetype.ttf",
+        "family": "Codec Test Variable TrueType",
+        "repo": "googlefonts/roboto-flex",
+        "revision": "739e06dc46ebb14cddd88b9768a6c1504d4677f6",
+        "path": "fonts/RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf",
+        "license": "OFL.txt",
+        "unicodes": "U+0020,U+0041-0043,U+0061-0063",
+        "sourceUrl": "https://raw.githubusercontent.com/googlefonts/roboto-flex/739e06dc46ebb14cddd88b9768a6c1504d4677f6/fonts/RobotoFlex%5BGRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght%5D.ttf",
+        "sourceSha256": "94a7ea95ccee28c54885a507e3cc0a534ce41ec61d413935df0e07261a7ffe63",
+        "sha256": "2fee176c800e0760005c4a5a60e0240338dbfe1455056a9776fb2c0a6d992441",
+        "bytes": 44008,
+        "licenseSha256": "454ec26838f2b8f2e2588e759dd3742577e0d305d3359a7b81c86641fcab7d21",
+        "tables": [
+          "GDEF",
+          "GPOS",
+          "GSUB",
+          "GlyphOrder",
+          "HVAR",
+          "MVAR",
+          "OS/2",
+          "STAT",
+          "avar",
+          "cmap",
+          "fvar",
+          "glyf",
+          "gvar",
+          "head",
+          "hhea",
+          "hmtx",
+          "loca",
+          "maxp",
+          "name",
+          "post"
+        ],
+        "glyphs": 10,
+        "unicode": [
+          32,
+          65,
+          66,
+          67,
+          97,
+          98,
+          99
+        ],
+        "axes": [
+          "opsz",
+          "wght",
+          "GRAD",
+          "wdth",
+          "slnt",
+          "XOPQ",
+          "YOPQ",
+          "XTRA",
+          "YTUC",
+          "YTLC",
+          "YTAS",
+          "YTDE",
+          "YTFI"
+        ],
+        "colrVersion": null
+      },
+      {
+        "name": "variable-cff2.otf",
+        "family": "Codec Test Variable CFF",
+        "repo": "adobe-fonts/source-serif",
+        "revision": "80d3f8894c09c937bebfa9011247d2e1c79fd6f4",
+        "path": "VAR/SourceSerif4Variable-Roman.otf",
+        "license": "LICENSE.md",
+        "unicodes": "U+0020,U+0041-0043,U+0061-0063",
+        "sourceUrl": "https://raw.githubusercontent.com/adobe-fonts/source-serif/80d3f8894c09c937bebfa9011247d2e1c79fd6f4/VAR/SourceSerif4Variable-Roman.otf",
+        "sourceSha256": "867b73c6a954a4a64616906d179f94572a748790a1d022ebeeff07f56ea0221a",
+        "sha256": "15950e8476a39d9c6e01fdc77b782047ae41e1a971fcf6a7372f9e92ed70dcb4",
+        "bytes": 23312,
+        "licenseSha256": "c21d7293d87b6d7ab1d0229a2f55b77f33a7613a6a4e66f6693d68d7d8d09464",
+        "tables": [
+          "BASE",
+          "CFF2",
+          "GDEF",
+          "GPOS",
+          "GSUB",
+          "GlyphOrder",
+          "HVAR",
+          "MVAR",
+          "OS/2",
+          "STAT",
+          "avar",
+          "cmap",
+          "fvar",
+          "head",
+          "hhea",
+          "hmtx",
+          "maxp",
+          "name",
+          "post"
+        ],
+        "glyphs": 17,
+        "unicode": [
+          32,
+          65,
+          66,
+          67,
+          97,
+          98,
+          99
+        ],
+        "axes": [
+          "wght",
+          "opsz"
+        ],
+        "colrVersion": null
+      },
+      {
+        "name": "cjk.otf",
+        "family": "Codec Test CJK",
+        "repo": "googlefonts/noto-cjk",
+        "revision": "f8d157532fbfaeda587e826d4cd5b21a49186f7c",
+        "path": "Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf",
+        "license": "Sans/LICENSE",
+        "unicodes": "U+0020,U+0041,U+3042,U+30A2,U+4E00,U+4E2D,U+65E5,U+672C,U+AC00",
+        "sourceUrl": "https://raw.githubusercontent.com/googlefonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf",
+        "sourceSha256": "68a3fc98800b2a27b371f2fb79991daf3633bd89309d4ffaa6946fd587f375b5",
+        "sha256": "6d3e4c15a2dbbf58447d3f72680759181a6379363967f2becf7e8ac36fc99819",
+        "bytes": 6580,
+        "licenseSha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+        "tables": [
+          "BASE",
+          "CFF ",
+          "GPOS",
+          "GSUB",
+          "GlyphOrder",
+          "OS/2",
+          "VORG",
+          "cmap",
+          "head",
+          "hhea",
+          "hmtx",
+          "maxp",
+          "name",
+          "post",
+          "vhea",
+          "vmtx"
+        ],
+        "glyphs": 18,
+        "unicode": [
+          32,
+          65,
+          12354,
+          12450,
+          19968,
+          20013,
+          26085,
+          26412,
+          44032
+        ],
+        "axes": [],
+        "colrVersion": null
+      },
+      {
+        "name": "color-colrv1.ttf",
+        "family": "Codec Test Color",
+        "repo": "googlefonts/noto-emoji",
+        "revision": "8998f5dd683424a73e2314a8c1f1e359c19e8742",
+        "path": "fonts/Noto-COLRv1.ttf",
+        "license": "fonts/LICENSE",
+        "unicodes": "U+0020,U+1F600,U+1F601",
+        "sourceUrl": "https://raw.githubusercontent.com/googlefonts/noto-emoji/8998f5dd683424a73e2314a8c1f1e359c19e8742/fonts/Noto-COLRv1.ttf",
+        "sourceSha256": "0ae57fe58645638523ba35f388d93739d292539a9acb84df5700c81b1e1a28d2",
+        "sha256": "68ecd316a47a5c3cdd95a7b923e504a6fa1205c60980cbd028b54de0553f3251",
+        "bytes": 4240,
+        "licenseSha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+        "tables": [
+          "COLR",
+          "CPAL",
+          "GSUB",
+          "GlyphOrder",
+          "OS/2",
+          "cmap",
+          "glyf",
+          "head",
+          "hhea",
+          "hmtx",
+          "loca",
+          "maxp",
+          "name",
+          "post",
+          "vhea",
+          "vmtx"
+        ],
+        "glyphs": 20,
+        "unicode": [
+          32,
+          128512,
+          128513
+        ],
+        "axes": [],
+        "colrVersion": 1
+      }
+    ]
+  },
+  "originalFixtureProvenance": "# Font test fixture\n\n`OpenSans-Regular.ttf` is Open Sans 1.10, copyright 2010–2011 Google\nCorporation, distributed under the Apache License 2.0. Its embedded name table\nrecords the license and links to <http://www.apache.org/licenses/LICENSE-2.0>.\n\nThis copy comes from the W3C EPUBCheck test corpus\n(`resources-cmt-font-opentype-valid`) and is used to exercise HarfBuzz against\na legitimate TrueType font.\n\n`Rochester.otf` is Rochester 1.005, copyright 2010 Font Diner, Inc. DBA\nSideshow, distributed under the Apache License 2.0. Its embedded name table\nrecords the license and links to <http://www.apache.org/licenses/LICENSE-2.0>.\nThis copy comes from the Web Platform Tests font-loading resources and exercises\nthe OpenType/CFF path.\n\nTest fixtures are not included in the published npm package.\n",
+  "scriptSha256": "46f83c01b47a328be57fbc072c35a9b1f685079f699943e3e08c4c02c73d02b2",
+  "memoryNotes": "RSS samples are whole-process observations, include JS/WASM/JIT/previous instances, and are not allocation peaks or per-codec memory. WASM memory capacity and native heap peaks are not measured. Disposing an instance does not force garbage collection.",
+  "timingNotes": "Sequential fixed order, one new instance per row; first call plus one warm-up, then repeated public API calls (includes validation/copies/allocations). Initialization includes file loading and compilation/instantiation but may benefit from OS/V8 cache; first calls are not guaranteed process-cold. Hash/table validation is outside timers. Ratios are output/input. No CI performance thresholds.",
+  "validationNotes": "Every decoded font passes structural validation and table-set equality except permitted WOFF2 DSIG removal (recorded per row). Table bytes must match, ignoring head checksum adjustment; for WOFF2 head/glyf/loca are excluded because canonicalization may change representation. This is not a full glyph geometry equivalence test.",
+  "results": [
+    {
+      "fixture": "OpenSans-Regular.ttf",
+      "inputBytes": 217360,
+      "inputSha256": "e64e508b2aa2880f907e470c4550980ec4c0694d103a43f36150ac3f93189bee",
+      "label": "zlib",
+      "kind": "woff1",
+      "options": {
+        "compression": "zlib"
+      },
+      "outputBytes": 112520,
+      "outputSha256": "abae55b0d62b766bc634bd29547d1500820390f69d03e542156f50df83321913",
+      "outputToInputRatio": 0.5176665439823335,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.8909160000000043,
+      "firstEncodeMs": 14.090790999999967,
+      "firstDecodeMs": 0.963374999999985,
+      "encode": {
+        "medianMs": 13.982167000000004,
+        "minMs": 13.672207999999955,
+        "maxMs": 14.183625000000006,
+        "samplesMs": [
+          14.183625000000006,
+          13.982708000000002,
+          13.681040999999993,
+          13.773916999999983,
+          14.082917000000009,
+          13.982167000000004,
+          13.672207999999955
+        ]
+      },
+      "decode": {
+        "medianMs": 0.9326669999999808,
+        "minMs": 0.9149589999999534,
+        "maxMs": 1.0165420000000154,
+        "samplesMs": [
+          1.0165420000000154,
+          0.9149589999999534,
+          0.9324589999999944,
+          0.9276249999999777,
+          0.9399169999999799,
+          0.952541999999994,
+          0.9326669999999808
+        ]
+      },
+      "processRssBytesBefore": 316309504,
+      "processRssBytesAfter": 508116992
+    },
+    {
+      "fixture": "OpenSans-Regular.ttf",
+      "inputBytes": 217360,
+      "inputSha256": "e64e508b2aa2880f907e470c4550980ec4c0694d103a43f36150ac3f93189bee",
+      "label": "zopfli-1",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 1
+      },
+      "outputBytes": 102168,
+      "outputSha256": "332188c02ee832af24772183dff8e228edd267721d1d0897bb3d243dbe07aecc",
+      "outputToInputRatio": 0.4700404858299595,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.7829589999999484,
+      "firstEncodeMs": 3244.302667,
+      "firstDecodeMs": 1.065208999999868,
+      "encode": {
+        "medianMs": 3235.8801250000015,
+        "minMs": 3230.5337500000023,
+        "maxMs": 3238.776290999999,
+        "samplesMs": [
+          3238.776290999999,
+          3235.8801250000015,
+          3233.4270829999987,
+          3237.113042000001,
+          3230.5337500000023,
+          3235.686249999999,
+          3236.443374999999
+        ]
+      },
+      "decode": {
+        "medianMs": 1.0229590000017197,
+        "minMs": 0.9981670000015583,
+        "maxMs": 1.10412499999984,
+        "samplesMs": [
+          1.0024169999996957,
+          1.10412499999984,
+          0.9981670000015583,
+          1.0001250000022992,
+          1.0464590000010503,
+          1.0229590000017197,
+          1.0702080000010028
+        ]
+      },
+      "processRssBytesBefore": 509214720,
+      "processRssBytesAfter": 401358848
+    },
+    {
+      "fixture": "OpenSans-Regular.ttf",
+      "inputBytes": 217360,
+      "inputSha256": "e64e508b2aa2880f907e470c4550980ec4c0694d103a43f36150ac3f93189bee",
+      "label": "zopfli-5",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 5
+      },
+      "outputBytes": 99388,
+      "outputSha256": "a392fda6fca36f094e8507543d71ecc02fbfdbde2e36f06fb6ca47fd62409f94",
+      "outputToInputRatio": 0.45725064409274935,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 1.5948329999991984,
+      "firstEncodeMs": 3392.332624999999,
+      "firstDecodeMs": 1.0520000000033178,
+      "encode": {
+        "medianMs": 3399.4177500000005,
+        "minMs": 3390.5182910000003,
+        "maxMs": 3404.5563330000004,
+        "samplesMs": [
+          3395.3938749999943,
+          3390.5182910000003,
+          3397.5465420000037,
+          3400.256125,
+          3403.490375000001,
+          3404.5563330000004,
+          3399.4177500000005
+        ]
+      },
+      "decode": {
+        "medianMs": 1.0300829999978305,
+        "minMs": 1.0104170000049635,
+        "maxMs": 1.066333000002487,
+        "samplesMs": [
+          1.0586250000051223,
+          1.0300829999978305,
+          1.0635420000035083,
+          1.030040999998164,
+          1.0104170000049635,
+          1.0226669999974547,
+          1.066333000002487
+        ]
+      },
+      "processRssBytesBefore": 401358848,
+      "processRssBytesAfter": 356237312
+    },
+    {
+      "fixture": "OpenSans-Regular.ttf",
+      "inputBytes": 217360,
+      "inputSha256": "e64e508b2aa2880f907e470c4550980ec4c0694d103a43f36150ac3f93189bee",
+      "label": "zopfli-15",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 15
+      },
+      "outputBytes": 99144,
+      "outputSha256": "893858b0870d5bfaccc71b7db407498588dfcaf3774da1744209583384872d8b",
+      "outputToInputRatio": 0.45612808244387193,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.645250000001397,
+      "firstEncodeMs": 3667.2979579999956,
+      "firstDecodeMs": 1.1097500000032596,
+      "encode": {
+        "medianMs": 3669.691624999992,
+        "minMs": 3666.3034590000025,
+        "maxMs": 3679.304290999993,
+        "samplesMs": [
+          3669.823583999998,
+          3670.3931250000023,
+          3667.183124999996,
+          3679.304290999993,
+          3669.277709000002,
+          3666.3034590000025,
+          3669.691624999992
+        ]
+      },
+      "decode": {
+        "medianMs": 1.040500000002794,
+        "minMs": 1.0131669999973383,
+        "maxMs": 1.191625000006752,
+        "samplesMs": [
+          1.040500000002794,
+          1.191625000006752,
+          1.015333000003011,
+          1.150999999998021,
+          1.0249579999945126,
+          1.0131669999973383,
+          1.053249999997206
+        ]
+      },
+      "processRssBytesBefore": 356237312,
+      "processRssBytesAfter": 361512960
+    },
+    {
+      "fixture": "OpenSans-Regular.ttf",
+      "inputBytes": 217360,
+      "inputSha256": "e64e508b2aa2880f907e470c4550980ec4c0694d103a43f36150ac3f93189bee",
+      "label": "zopfli-30",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 30
+      },
+      "outputBytes": 98960,
+      "outputSha256": "fc9f2218de6b07472a3e39a7505e27f09ea516ed6c6969da7bcae341016e7ef3",
+      "outputToInputRatio": 0.45528156054471847,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 1.7958749999961583,
+      "firstEncodeMs": 4100.514584000004,
+      "firstDecodeMs": 1.0238329999992857,
+      "encode": {
+        "medianMs": 4319.461167000001,
+        "minMs": 4306.879291999998,
+        "maxMs": 4326.841417000003,
+        "samplesMs": [
+          4326.841417000003,
+          4320.225416000001,
+          4315.460166999997,
+          4317.678083000006,
+          4319.461167000001,
+          4306.879291999998,
+          4324.122792000009
+        ]
+      },
+      "decode": {
+        "medianMs": 1.0425410000025295,
+        "minMs": 1.019083999999566,
+        "maxMs": 1.4850420000002487,
+        "samplesMs": [
+          1.4850420000002487,
+          1.019083999999566,
+          1.0328339999978198,
+          1.032166999997571,
+          1.136584000007133,
+          1.0740829999995185,
+          1.0425410000025295
+        ]
+      },
+      "processRssBytesBefore": 361512960,
+      "processRssBytesAfter": 354779136
+    },
+    {
+      "fixture": "OpenSans-Regular.ttf",
+      "inputBytes": 217360,
+      "inputSha256": "e64e508b2aa2880f907e470c4550980ec4c0694d103a43f36150ac3f93189bee",
+      "label": "woff2-q4",
+      "kind": "woff2",
+      "options": {
+        "quality": 4,
+        "allowTransforms": true
+      },
+      "outputBytes": 73812,
+      "outputSha256": "85b33f93ade44ea0936b48595f9cd0d75f48dae6c29a520437fa1e06586467fb",
+      "outputToInputRatio": 0.3395841001104159,
+      "warnings": 0,
+      "removedTables": [
+        "DSIG"
+      ],
+      "initializationMs": 2.1861250000074506,
+      "firstEncodeMs": 21.168708999990486,
+      "firstDecodeMs": 3.366708000015933,
+      "encode": {
+        "medianMs": 6.040374999982305,
+        "minMs": 5.821958000015002,
+        "maxMs": 7.460875000018859,
+        "samplesMs": [
+          5.95008300000336,
+          6.1437499999883585,
+          6.040374999982305,
+          7.460875000018859,
+          6.044957999984035,
+          5.885249999992084,
+          5.821958000015002
+        ]
+      },
+      "decode": {
+        "medianMs": 1.5324999999720603,
+        "minMs": 1.403374999994412,
+        "maxMs": 2.6450840000179596,
+        "samplesMs": [
+          1.8469999999797437,
+          2.6450840000179596,
+          1.900792000000365,
+          1.403374999994412,
+          1.4751659999892581,
+          1.4514170000038575,
+          1.5324999999720603
+        ]
+      },
+      "processRssBytesBefore": 354779136,
+      "processRssBytesAfter": 423395328
+    },
+    {
+      "fixture": "OpenSans-Regular.ttf",
+      "inputBytes": 217360,
+      "inputSha256": "e64e508b2aa2880f907e470c4550980ec4c0694d103a43f36150ac3f93189bee",
+      "label": "woff2-q8",
+      "kind": "woff2",
+      "options": {
+        "quality": 8,
+        "allowTransforms": true
+      },
+      "outputBytes": 69820,
+      "outputSha256": "9fb376071087fdbcf4b2d217375771cd7c3de49eb39fe3b924abe8a32f792a71",
+      "outputToInputRatio": 0.32121825542878174,
+      "warnings": 0,
+      "removedTables": [
+        "DSIG"
+      ],
+      "initializationMs": 1.9385409999813419,
+      "firstEncodeMs": 17.58791599998949,
+      "firstDecodeMs": 1.3880409999983385,
+      "encode": {
+        "medianMs": 15.063709000009112,
+        "minMs": 14.001250000001164,
+        "maxMs": 16.25695799998357,
+        "samplesMs": [
+          15.276875000010477,
+          15.063709000009112,
+          14.001250000001164,
+          14.247167000023182,
+          16.25695799998357,
+          14.475291999988258,
+          16.03758299999754
+        ]
+      },
+      "decode": {
+        "medianMs": 1.4309160000120755,
+        "minMs": 1.3605000000097789,
+        "maxMs": 2.3658330000180285,
+        "samplesMs": [
+          2.3658330000180285,
+          1.4309160000120755,
+          1.4535840000025928,
+          1.41691699999501,
+          2.1987910000025295,
+          1.377875000005588,
+          1.3605000000097789
+        ]
+      },
+      "processRssBytesBefore": 423395328,
+      "processRssBytesAfter": 524435456
+    },
+    {
+      "fixture": "OpenSans-Regular.ttf",
+      "inputBytes": 217360,
+      "inputSha256": "e64e508b2aa2880f907e470c4550980ec4c0694d103a43f36150ac3f93189bee",
+      "label": "woff2-q11",
+      "kind": "woff2",
+      "options": {
+        "quality": 11,
+        "allowTransforms": true
+      },
+      "outputBytes": 59820,
+      "outputSha256": "487a19fb6509ab8a2a83e82eb55051bbee2558c51ea6d5a9bf3132d2bed3b79c",
+      "outputToInputRatio": 0.27521163047478836,
+      "warnings": 0,
+      "removedTables": [
+        "DSIG"
+      ],
+      "initializationMs": 1.9985000000160653,
+      "firstEncodeMs": 799.5984999999928,
+      "firstDecodeMs": 1.650000000023283,
+      "encode": {
+        "medianMs": 592.800917000015,
+        "minMs": 591.454458000022,
+        "maxMs": 605.8318750000035,
+        "samplesMs": [
+          592.2877499999886,
+          592.1285410000128,
+          592.800917000015,
+          601.239916999999,
+          605.8318750000035,
+          593.5131659999897,
+          591.454458000022
+        ]
+      },
+      "decode": {
+        "medianMs": 1.5965420000138693,
+        "minMs": 1.5513330000103451,
+        "maxMs": 1.7372920000052545,
+        "samplesMs": [
+          1.5685420000227168,
+          1.5965420000138693,
+          1.6072499999718275,
+          1.7372920000052545,
+          1.5513330000103451,
+          1.5705000000016298,
+          1.6664159999927506
+        ]
+      },
+      "processRssBytesBefore": 524500992,
+      "processRssBytesAfter": 489897984
+    },
+    {
+      "fixture": "OpenSans-Regular.ttf",
+      "inputBytes": 217360,
+      "inputSha256": "e64e508b2aa2880f907e470c4550980ec4c0694d103a43f36150ac3f93189bee",
+      "label": "woff2-q11-no-transforms",
+      "kind": "woff2",
+      "options": {
+        "quality": 11,
+        "allowTransforms": false
+      },
+      "outputBytes": 67324,
+      "outputSha256": "444603451d3e90b881a295c6fbe8d4120f0e6e5e84acb73fb392dbbbd9cdb4d8",
+      "outputToInputRatio": 0.309735001840265,
+      "warnings": 0,
+      "removedTables": [
+        "DSIG"
+      ],
+      "initializationMs": 1.9272080000082497,
+      "firstEncodeMs": 706.3744580000057,
+      "firstDecodeMs": 1.3432909999974072,
+      "encode": {
+        "medianMs": 702.5985419999924,
+        "minMs": 698.6149160000205,
+        "maxMs": 704.8595829999831,
+        "samplesMs": [
+          702.5985419999924,
+          698.9034589999937,
+          698.6149160000205,
+          703.3827089999977,
+          702.4894579999964,
+          703.8897500000021,
+          704.8595829999831
+        ]
+      },
+      "decode": {
+        "medianMs": 1.3751249999913853,
+        "minMs": 1.344333999993978,
+        "maxMs": 1.448999999993248,
+        "samplesMs": [
+          1.345499999995809,
+          1.3751249999913853,
+          1.344333999993978,
+          1.4074580000014976,
+          1.448999999993248,
+          1.4056250000139698,
+          1.3461669999815058
+        ]
+      },
+      "processRssBytesBefore": 489897984,
+      "processRssBytesAfter": 495484928
+    },
+    {
+      "fixture": "Rochester.otf",
+      "inputBytes": 27260,
+      "inputSha256": "235f7207a202026a0a73c38c64713d58eace082bdf605f5abd2a28166fab61aa",
+      "label": "zlib",
+      "kind": "woff1",
+      "options": {
+        "compression": "zlib"
+      },
+      "outputBytes": 22876,
+      "outputSha256": "597357c7f11d9213923313a4a2984a5adcbbcd48b285a09deb7249a177e994f1",
+      "outputToInputRatio": 0.8391782831988261,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.6739589999779128,
+      "firstEncodeMs": 2.2296670000068843,
+      "firstDecodeMs": 0.7974999999860302,
+      "encode": {
+        "medianMs": 0.8243340000044554,
+        "minMs": 0.7591660000034608,
+        "maxMs": 1.02995899997768,
+        "samplesMs": [
+          1.02995899997768,
+          0.8114169999898877,
+          0.7749580000236165,
+          0.7591660000034608,
+          0.9436249999853317,
+          0.8472920000203885,
+          0.8243340000044554
+        ]
+      },
+      "decode": {
+        "medianMs": 0.21545799999148585,
+        "minMs": 0.2037080000154674,
+        "maxMs": 0.2559999999939464,
+        "samplesMs": [
+          0.23529099998995662,
+          0.21345799998380244,
+          0.2037080000154674,
+          0.2051250000076834,
+          0.2559999999939464,
+          0.23495799998636357,
+          0.21545799999148585
+        ]
+      },
+      "processRssBytesBefore": 495599616,
+      "processRssBytesAfter": 496189440
+    },
+    {
+      "fixture": "Rochester.otf",
+      "inputBytes": 27260,
+      "inputSha256": "235f7207a202026a0a73c38c64713d58eace082bdf605f5abd2a28166fab61aa",
+      "label": "zopfli-1",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 1
+      },
+      "outputBytes": 22428,
+      "outputSha256": "52eb363d678b48721703ab9d62ef7bacc7d8a907a89fed16ae05406036969eb9",
+      "outputToInputRatio": 0.8227439471753485,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.6875829999917187,
+      "firstEncodeMs": 1563.322709,
+      "firstDecodeMs": 0.23916699999244884,
+      "encode": {
+        "medianMs": 1550.8780829999887,
+        "minMs": 1541.9336250000051,
+        "maxMs": 1558.091208000027,
+        "samplesMs": [
+          1549.6568750000151,
+          1541.9336250000051,
+          1558.091208000027,
+          1553.6442080000124,
+          1545.9990419999813,
+          1555.1652079999913,
+          1550.8780829999887
+        ]
+      },
+      "decode": {
+        "medianMs": 0.2086669999989681,
+        "minMs": 0.20374999998603016,
+        "maxMs": 0.57316699999501,
+        "samplesMs": [
+          0.20529199999873526,
+          0.21541699999943376,
+          0.57316699999501,
+          0.20854099999996834,
+          0.20374999998603016,
+          0.2086669999989681,
+          0.28404100000625476
+        ]
+      },
+      "processRssBytesBefore": 496189440,
+      "processRssBytesAfter": 500105216
+    },
+    {
+      "fixture": "Rochester.otf",
+      "inputBytes": 27260,
+      "inputSha256": "235f7207a202026a0a73c38c64713d58eace082bdf605f5abd2a28166fab61aa",
+      "label": "zopfli-5",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 5
+      },
+      "outputBytes": 22396,
+      "outputSha256": "46efcb08d1ae74ca4970ab6eb65dce31d65258cc59ef71502bb3384db61ddebe",
+      "outputToInputRatio": 0.8215700660308144,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 2.0922499999869615,
+      "firstEncodeMs": 1566.2129579999892,
+      "firstDecodeMs": 0.23220900000887923,
+      "encode": {
+        "medianMs": 1562.0989580000169,
+        "minMs": 1553.824499999988,
+        "maxMs": 1568.2995000000228,
+        "samplesMs": [
+          1568.2995000000228,
+          1564.5071249999746,
+          1562.0989580000169,
+          1561.070665999985,
+          1562.4899589999986,
+          1557.5384170000034,
+          1553.824499999988
+        ]
+      },
+      "decode": {
+        "medianMs": 0.20912500002305023,
+        "minMs": 0.20462499998393469,
+        "maxMs": 0.31287500000325963,
+        "samplesMs": [
+          0.2137079999956768,
+          0.20462499998393469,
+          0.31287500000325963,
+          0.20841700001619756,
+          0.20470799997565337,
+          0.20912500002305023,
+          0.21241700000246055
+        ]
+      },
+      "processRssBytesBefore": 500105216,
+      "processRssBytesAfter": 453361664
+    },
+    {
+      "fixture": "Rochester.otf",
+      "inputBytes": 27260,
+      "inputSha256": "235f7207a202026a0a73c38c64713d58eace082bdf605f5abd2a28166fab61aa",
+      "label": "zopfli-15",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 15
+      },
+      "outputBytes": 22384,
+      "outputSha256": "0df3d9e0b3b8342b5c01ae7f30a405fdc31762f43a3d25ec609ce660176f3309",
+      "outputToInputRatio": 0.8211298606016141,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.6541670000005979,
+      "firstEncodeMs": 1589.7069159999955,
+      "firstDecodeMs": 0.22899999999208376,
+      "encode": {
+        "medianMs": 1582.394834000006,
+        "minMs": 1573.3387079999957,
+        "maxMs": 1589.5382089999912,
+        "samplesMs": [
+          1582.394834000006,
+          1583.1068749999977,
+          1573.3387079999957,
+          1577.0284590000228,
+          1580.6993749999965,
+          1589.5382089999912,
+          1588.5912910000188
+        ]
+      },
+      "decode": {
+        "medianMs": 0.20691599999554455,
+        "minMs": 0.2056659999943804,
+        "maxMs": 0.22049999999580905,
+        "samplesMs": [
+          0.22049999999580905,
+          0.2056659999943804,
+          0.22024999998393469,
+          0.21100000001024455,
+          0.20583300001453608,
+          0.20679200001177378,
+          0.20691599999554455
+        ]
+      },
+      "processRssBytesBefore": 453361664,
+      "processRssBytesAfter": 453836800
+    },
+    {
+      "fixture": "Rochester.otf",
+      "inputBytes": 27260,
+      "inputSha256": "235f7207a202026a0a73c38c64713d58eace082bdf605f5abd2a28166fab61aa",
+      "label": "zopfli-30",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 30
+      },
+      "outputBytes": 22384,
+      "outputSha256": "92f4bdefe500207fb71013208bcbd3e18aa26b66da5d5f7eab0cd178a26b8b4f",
+      "outputToInputRatio": 0.8211298606016141,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.7479159999929834,
+      "firstEncodeMs": 1672.139124999987,
+      "firstDecodeMs": 0.22054099998786114,
+      "encode": {
+        "medianMs": 1682.7831249999872,
+        "minMs": 1678.440333000006,
+        "maxMs": 1694.490334000002,
+        "samplesMs": [
+          1680.0066669999796,
+          1682.7831249999872,
+          1686.7637920000125,
+          1694.490334000002,
+          1691.7624160000123,
+          1682.4315829999978,
+          1678.440333000006
+        ]
+      },
+      "decode": {
+        "medianMs": 0.21058400001493283,
+        "minMs": 0.20650000000023283,
+        "maxMs": 0.21758299999055453,
+        "samplesMs": [
+          0.21058400001493283,
+          0.21758299999055453,
+          0.21020799997495487,
+          0.21550000002025627,
+          0.20650000000023283,
+          0.2152920000080485,
+          0.20949999999720603
+        ]
+      },
+      "processRssBytesBefore": 453836800,
+      "processRssBytesAfter": 454033408
+    },
+    {
+      "fixture": "Rochester.otf",
+      "inputBytes": 27260,
+      "inputSha256": "235f7207a202026a0a73c38c64713d58eace082bdf605f5abd2a28166fab61aa",
+      "label": "woff2-q4",
+      "kind": "woff2",
+      "options": {
+        "quality": 4,
+        "allowTransforms": true
+      },
+      "outputBytes": 22772,
+      "outputSha256": "b2e21b42e5f1ca2aec157ad15689a70cc75203c031da7e01831203fd757b1727",
+      "outputToInputRatio": 0.8353631694790903,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 1.918708000011975,
+      "firstEncodeMs": 12.855083999980707,
+      "firstDecodeMs": 1.0337089999811724,
+      "encode": {
+        "medianMs": 0.6508749999920838,
+        "minMs": 0.5344589999876916,
+        "maxMs": 0.7737919999926817,
+        "samplesMs": [
+          0.7737919999926817,
+          0.6740419999987353,
+          0.6461249999993015,
+          0.6508749999920838,
+          0.5593339999904856,
+          0.7192090000025928,
+          0.5344589999876916
+        ]
+      },
+      "decode": {
+        "medianMs": 0.30479200000991113,
+        "minMs": 0.2717079999856651,
+        "maxMs": 0.40954200000851415,
+        "samplesMs": [
+          0.40954200000851415,
+          0.3780409999890253,
+          0.3653749999939464,
+          0.2963339999841992,
+          0.27591599998413585,
+          0.30479200000991113,
+          0.2717079999856651
+        ]
+      },
+      "processRssBytesBefore": 454033408,
+      "processRssBytesAfter": 463224832
+    },
+    {
+      "fixture": "Rochester.otf",
+      "inputBytes": 27260,
+      "inputSha256": "235f7207a202026a0a73c38c64713d58eace082bdf605f5abd2a28166fab61aa",
+      "label": "woff2-q8",
+      "kind": "woff2",
+      "options": {
+        "quality": 8,
+        "allowTransforms": true
+      },
+      "outputBytes": 22588,
+      "outputSha256": "4de0517a644edc40f10b3a3f6585079aa66278537c55fc076e232407d1409a14",
+      "outputToInputRatio": 0.8286133528980191,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 2.1337079999793787,
+      "firstEncodeMs": 2.7452500000072177,
+      "firstDecodeMs": 0.34541700000409037,
+      "encode": {
+        "medianMs": 0.9467909999948461,
+        "minMs": 0.8619169999728911,
+        "maxMs": 1.1624590000137687,
+        "samplesMs": [
+          0.9455830000224523,
+          1.0016659999964759,
+          0.9467909999948461,
+          0.8619169999728911,
+          1.1624590000137687,
+          0.9753750000090804,
+          0.8742090000014286
+        ]
+      },
+      "decode": {
+        "medianMs": 0.28237499998067506,
+        "minMs": 0.2637910000048578,
+        "maxMs": 0.45383400001446716,
+        "samplesMs": [
+          0.28520900002331473,
+          0.45383400001446716,
+          0.27391700001317076,
+          0.2720829999889247,
+          0.33854100000462495,
+          0.28237499998067506,
+          0.2637910000048578
+        ]
+      },
+      "processRssBytesBefore": 463224832,
+      "processRssBytesAfter": 492781568
+    },
+    {
+      "fixture": "Rochester.otf",
+      "inputBytes": 27260,
+      "inputSha256": "235f7207a202026a0a73c38c64713d58eace082bdf605f5abd2a28166fab61aa",
+      "label": "woff2-q11",
+      "kind": "woff2",
+      "options": {
+        "quality": 11,
+        "allowTransforms": true
+      },
+      "outputBytes": 20928,
+      "outputSha256": "21b8636e94e2c4a1accb98e6c327808d57e764d2fcbde086f16526eb44f5b158",
+      "outputToInputRatio": 0.7677182685253118,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 2.096332999994047,
+      "firstEncodeMs": 89.65395799998078,
+      "firstDecodeMs": 0.3572920000005979,
+      "encode": {
+        "medianMs": 62.581749999983,
+        "minMs": 60.852000000013504,
+        "maxMs": 84.6102499999979,
+        "samplesMs": [
+          84.6102499999979,
+          84.46945799997775,
+          62.581749999983,
+          60.852000000013504,
+          62.04183400000329,
+          63.919458000018494,
+          61.69312499999069
+        ]
+      },
+      "decode": {
+        "medianMs": 0.3587919999845326,
+        "minMs": 0.3502919999882579,
+        "maxMs": 0.39587499998742715,
+        "samplesMs": [
+          0.3625410000095144,
+          0.3587919999845326,
+          0.35445799998706207,
+          0.35058300002128817,
+          0.3502919999882579,
+          0.39587499998742715,
+          0.3695420000003651
+        ]
+      },
+      "processRssBytesBefore": 493207552,
+      "processRssBytesAfter": 547291136
+    },
+    {
+      "fixture": "Rochester.otf",
+      "inputBytes": 27260,
+      "inputSha256": "235f7207a202026a0a73c38c64713d58eace082bdf605f5abd2a28166fab61aa",
+      "label": "woff2-q11-no-transforms",
+      "kind": "woff2",
+      "options": {
+        "quality": 11,
+        "allowTransforms": false
+      },
+      "outputBytes": 20928,
+      "outputSha256": "21b8636e94e2c4a1accb98e6c327808d57e764d2fcbde086f16526eb44f5b158",
+      "outputToInputRatio": 0.7677182685253118,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 1.9517909999995027,
+      "firstEncodeMs": 62.56895899999654,
+      "firstDecodeMs": 1.4164159999927506,
+      "encode": {
+        "medianMs": 61.44174999999814,
+        "minMs": 60.6730830000015,
+        "maxMs": 65.10262499999953,
+        "samplesMs": [
+          61.91654100001324,
+          65.10262499999953,
+          61.9273749999993,
+          60.754209000006085,
+          60.85449999998673,
+          61.44174999999814,
+          60.6730830000015
+        ]
+      },
+      "decode": {
+        "medianMs": 0.356792000005953,
+        "minMs": 0.34904199998709373,
+        "maxMs": 0.36141700000735,
+        "samplesMs": [
+          0.356792000005953,
+          0.3559170000080485,
+          0.34904199998709373,
+          0.35712500000954606,
+          0.35925000000861473,
+          0.3506249999918509,
+          0.36141700000735
+        ]
+      },
+      "processRssBytesBefore": 547291136,
+      "processRssBytesAfter": 524845056
+    },
+    {
+      "fixture": "corpus/variable-truetype.ttf",
+      "inputBytes": 44008,
+      "inputSha256": "2fee176c800e0760005c4a5a60e0240338dbfe1455056a9776fb2c0a6d992441",
+      "label": "zlib",
+      "kind": "woff1",
+      "options": {
+        "compression": "zlib"
+      },
+      "outputBytes": 21840,
+      "outputSha256": "b588a13e196c9fd59485c80fc3859c95d0ad2830637c50c021c3e992958bc503",
+      "outputToInputRatio": 0.49627340483548443,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.7157500000030268,
+      "firstEncodeMs": 3.1521250000223517,
+      "firstDecodeMs": 1.404833000007784,
+      "encode": {
+        "medianMs": 1.804915999993682,
+        "minMs": 1.7891249999811407,
+        "maxMs": 2.875792000006186,
+        "samplesMs": [
+          2.875792000006186,
+          1.9245419999933802,
+          1.800041999988025,
+          1.9018339999893215,
+          1.8042500000155997,
+          1.804915999993682,
+          1.7891249999811407
+        ]
+      },
+      "decode": {
+        "medianMs": 0.2942500000062864,
+        "minMs": 0.23595899998326786,
+        "maxMs": 0.3143339999951422,
+        "samplesMs": [
+          0.30020800000056624,
+          0.3143339999951422,
+          0.2942500000062864,
+          0.29820799999288283,
+          0.2409580000094138,
+          0.23595899998326786,
+          0.25116699998034164
+        ]
+      },
+      "processRssBytesBefore": 524845056,
+      "processRssBytesAfter": 525467648
+    },
+    {
+      "fixture": "corpus/variable-truetype.ttf",
+      "inputBytes": 44008,
+      "inputSha256": "2fee176c800e0760005c4a5a60e0240338dbfe1455056a9776fb2c0a6d992441",
+      "label": "zopfli-1",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 1
+      },
+      "outputBytes": 21144,
+      "outputSha256": "4da8ccc8623c261a44f11b0c290d7bacf621bd6accd9035a73cd745f5fbd3b5d",
+      "outputToInputRatio": 0.48045809852754046,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.6906249999883585,
+      "firstEncodeMs": 1312.0895840000012,
+      "firstDecodeMs": 0.26600000000325963,
+      "encode": {
+        "medianMs": 1309.987832999992,
+        "minMs": 1302.9416250000068,
+        "maxMs": 1337.165707999986,
+        "samplesMs": [
+          1302.9416250000068,
+          1309.987832999992,
+          1306.8864590000012,
+          1315.652208000014,
+          1303.8888750000042,
+          1314.9279580000148,
+          1337.165707999986
+        ]
+      },
+      "decode": {
+        "medianMs": 0.27095800000824966,
+        "minMs": 0.2550420000043232,
+        "maxMs": 0.3103750000009313,
+        "samplesMs": [
+          0.27095800000824966,
+          0.2650419999845326,
+          0.2571250000037253,
+          0.2751249999855645,
+          0.3103750000009313,
+          0.2550420000043232,
+          0.2723330000007991
+        ]
+      },
+      "processRssBytesBefore": 525467648,
+      "processRssBytesAfter": 528269312
+    },
+    {
+      "fixture": "corpus/variable-truetype.ttf",
+      "inputBytes": 44008,
+      "inputSha256": "2fee176c800e0760005c4a5a60e0240338dbfe1455056a9776fb2c0a6d992441",
+      "label": "zopfli-5",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 5
+      },
+      "outputBytes": 21088,
+      "outputSha256": "dd4ac50a34017add4af263d754ae5a82f13d9d5aac4e4ffc1da8952954b0d6e5",
+      "outputToInputRatio": 0.4791856026177059,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.9243750000023283,
+      "firstEncodeMs": 1258.4533750000119,
+      "firstDecodeMs": 0.28995799997937866,
+      "encode": {
+        "medianMs": 1228.365375000023,
+        "minMs": 1223.5338340000017,
+        "maxMs": 1235.893041000003,
+        "samplesMs": [
+          1229.1751250000088,
+          1223.6030829999945,
+          1229.7371250000142,
+          1227.750665999978,
+          1223.5338340000017,
+          1228.365375000023,
+          1235.893041000003
+        ]
+      },
+      "decode": {
+        "medianMs": 0.26074999998672865,
+        "minMs": 0.25587500000256114,
+        "maxMs": 0.2707090000039898,
+        "samplesMs": [
+          0.26433299999916926,
+          0.2584999999962747,
+          0.26787499999045394,
+          0.26029099998413585,
+          0.25587500000256114,
+          0.2707090000039898,
+          0.26074999998672865
+        ]
+      },
+      "processRssBytesBefore": 528269312,
+      "processRssBytesAfter": 530743296
+    },
+    {
+      "fixture": "corpus/variable-truetype.ttf",
+      "inputBytes": 44008,
+      "inputSha256": "2fee176c800e0760005c4a5a60e0240338dbfe1455056a9776fb2c0a6d992441",
+      "label": "zopfli-15",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 15
+      },
+      "outputBytes": 21056,
+      "outputSha256": "1b10ba63450bcebd822ccf6a6ef4ddbe22558876ef17f949161c43b765aca74d",
+      "outputToInputRatio": 0.4784584620978004,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 1.0261250000039581,
+      "firstEncodeMs": 1362.6752500000002,
+      "firstDecodeMs": 0.2915420000208542,
+      "encode": {
+        "medianMs": 1366.8967500000144,
+        "minMs": 1357.703582999995,
+        "maxMs": 1441.7633750000095,
+        "samplesMs": [
+          1364.8126249999914,
+          1360.33712500002,
+          1366.8967500000144,
+          1357.703582999995,
+          1372.1009170000034,
+          1441.7633750000095,
+          1367.385083000001
+        ]
+      },
+      "decode": {
+        "medianMs": 0.2677079999994021,
+        "minMs": 0.25570899999001995,
+        "maxMs": 0.28312500001629815,
+        "samplesMs": [
+          0.2677079999994021,
+          0.28191699998569675,
+          0.26358299999265,
+          0.25570899999001995,
+          0.28312500001629815,
+          0.25991600000998005,
+          0.2823750000097789
+        ]
+      },
+      "processRssBytesBefore": 530743296,
+      "processRssBytesAfter": 507019264
+    },
+    {
+      "fixture": "corpus/variable-truetype.ttf",
+      "inputBytes": 44008,
+      "inputSha256": "2fee176c800e0760005c4a5a60e0240338dbfe1455056a9776fb2c0a6d992441",
+      "label": "zopfli-30",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 30
+      },
+      "outputBytes": 21060,
+      "outputSha256": "508f323d340d8880fa58e08044888862c6a4caa14f172bf6a0d563f42836e485",
+      "outputToInputRatio": 0.4785493546627886,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.7603329999838024,
+      "firstEncodeMs": 1557.3432500000054,
+      "firstDecodeMs": 0.2670829999842681,
+      "encode": {
+        "medianMs": 1553.5522499999788,
+        "minMs": 1546.1902079999854,
+        "maxMs": 1558.396665999986,
+        "samplesMs": [
+          1558.396665999986,
+          1554.4460000000254,
+          1552.3259590000089,
+          1546.1902079999854,
+          1554.3694169999799,
+          1548.874959000008,
+          1553.5522499999788
+        ]
+      },
+      "decode": {
+        "medianMs": 0.2646250000107102,
+        "minMs": 0.25683299999218434,
+        "maxMs": 0.27150000000256114,
+        "samplesMs": [
+          0.2580420000012964,
+          0.2646250000107102,
+          0.27150000000256114,
+          0.2574590000149328,
+          0.2661249999946449,
+          0.269083999999566,
+          0.25683299999218434
+        ]
+      },
+      "processRssBytesBefore": 507019264,
+      "processRssBytesAfter": 509509632
+    },
+    {
+      "fixture": "corpus/variable-truetype.ttf",
+      "inputBytes": 44008,
+      "inputSha256": "2fee176c800e0760005c4a5a60e0240338dbfe1455056a9776fb2c0a6d992441",
+      "label": "woff2-q4",
+      "kind": "woff2",
+      "options": {
+        "quality": 4,
+        "allowTransforms": true
+      },
+      "outputBytes": 22276,
+      "outputSha256": "d28a517593d6430d470eb18602ac0a23410423357c6a5a71eb212f04ddf8e9d7",
+      "outputToInputRatio": 0.5061806944191966,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 2.2908750000060536,
+      "firstEncodeMs": 14.871791999990819,
+      "firstDecodeMs": 1.0707080000138376,
+      "encode": {
+        "medianMs": 1.2527920000138693,
+        "minMs": 1.1055000000051223,
+        "maxMs": 1.3653329999942798,
+        "samplesMs": [
+          1.2527920000138693,
+          1.3653329999942798,
+          1.3568749999976717,
+          1.2377500000002328,
+          1.3072080000129063,
+          1.18049999998766,
+          1.1055000000051223
+        ]
+      },
+      "decode": {
+        "medianMs": 0.36779200000455603,
+        "minMs": 0.31424999999580905,
+        "maxMs": 0.4509999999718275,
+        "samplesMs": [
+          0.4509999999718275,
+          0.38441600001533516,
+          0.36779200000455603,
+          0.36108400000375696,
+          0.3744170000136364,
+          0.3299999999871943,
+          0.31424999999580905
+        ]
+      },
+      "processRssBytesBefore": 509509632,
+      "processRssBytesAfter": 517095424
+    },
+    {
+      "fixture": "corpus/variable-truetype.ttf",
+      "inputBytes": 44008,
+      "inputSha256": "2fee176c800e0760005c4a5a60e0240338dbfe1455056a9776fb2c0a6d992441",
+      "label": "woff2-q8",
+      "kind": "woff2",
+      "options": {
+        "quality": 8,
+        "allowTransforms": true
+      },
+      "outputBytes": 20720,
+      "outputSha256": "bc02079dca75cbe4df67fef4573c2f457908a210369fbd6e7df2e899750d2c3c",
+      "outputToInputRatio": 0.4708234866387929,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 2.4469999999855645,
+      "firstEncodeMs": 4.092999999993481,
+      "firstDecodeMs": 0.3907079999917187,
+      "encode": {
+        "medianMs": 2.3514999999897555,
+        "minMs": 2.20212500001071,
+        "maxMs": 3.9774580000084825,
+        "samplesMs": [
+          3.9774580000084825,
+          2.2844589999876916,
+          2.405083999998169,
+          2.3514999999897555,
+          2.4854169999889564,
+          2.2117919999873266,
+          2.20212500001071
+        ]
+      },
+      "decode": {
+        "medianMs": 0.3555000000051223,
+        "minMs": 0.33220899998559617,
+        "maxMs": 0.4239590000070166,
+        "samplesMs": [
+          0.3555000000051223,
+          0.33220899998559617,
+          0.4239590000070166,
+          0.3942910000041593,
+          0.3734999999869615,
+          0.33487500000046566,
+          0.33587499998975545
+        ]
+      },
+      "processRssBytesBefore": 517095424,
+      "processRssBytesAfter": 550436864
+    },
+    {
+      "fixture": "corpus/variable-truetype.ttf",
+      "inputBytes": 44008,
+      "inputSha256": "2fee176c800e0760005c4a5a60e0240338dbfe1455056a9776fb2c0a6d992441",
+      "label": "woff2-q11",
+      "kind": "woff2",
+      "options": {
+        "quality": 11,
+        "allowTransforms": true
+      },
+      "outputBytes": 18632,
+      "outputSha256": "88ea71f0272d62e778b78cb2815fbfab6a465d0289103d5322b1603d5478d325",
+      "outputToInputRatio": 0.42337756771496093,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 2.8686670000024606,
+      "firstEncodeMs": 117.31466699999874,
+      "firstDecodeMs": 1.667124999978114,
+      "encode": {
+        "medianMs": 85.33879199999501,
+        "minMs": 84.3179999999993,
+        "maxMs": 109.17108400000143,
+        "samplesMs": [
+          109.17108400000143,
+          84.82412500001374,
+          86.24208299999009,
+          86.07983299999614,
+          84.3179999999993,
+          85.33879199999501,
+          84.81145900001866
+        ]
+      },
+      "decode": {
+        "medianMs": 0.39445799999521114,
+        "minMs": 0.3771249999990687,
+        "maxMs": 0.4189579999947455,
+        "samplesMs": [
+          0.4189579999947455,
+          0.3933330000145361,
+          0.39445799999521114,
+          0.4087920000019949,
+          0.40108300000429153,
+          0.3861249999899883,
+          0.3771249999990687
+        ]
+      },
+      "processRssBytesBefore": 550436864,
+      "processRssBytesAfter": 560824320
+    },
+    {
+      "fixture": "corpus/variable-truetype.ttf",
+      "inputBytes": 44008,
+      "inputSha256": "2fee176c800e0760005c4a5a60e0240338dbfe1455056a9776fb2c0a6d992441",
+      "label": "woff2-q11-no-transforms",
+      "kind": "woff2",
+      "options": {
+        "quality": 11,
+        "allowTransforms": false
+      },
+      "outputBytes": 18816,
+      "outputSha256": "6f03ab6455091210579b730a0ff00c0980f5eb054607067e0e0b8140babfdd02",
+      "outputToInputRatio": 0.4275586257044174,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 2.2280829999945126,
+      "firstEncodeMs": 91.81804100002046,
+      "firstDecodeMs": 0.3705420000187587,
+      "encode": {
+        "medianMs": 88.95941700000549,
+        "minMs": 88.10404200002085,
+        "maxMs": 89.42775000000256,
+        "samplesMs": [
+          89.42775000000256,
+          89.28224999998929,
+          88.17900000000373,
+          88.98579200002132,
+          88.95941700000549,
+          88.10404200002085,
+          88.25299999999697
+        ]
+      },
+      "decode": {
+        "medianMs": 0.3765830000047572,
+        "minMs": 0.36908400000538677,
+        "maxMs": 0.385041999979876,
+        "samplesMs": [
+          0.36908400000538677,
+          0.371458999987226,
+          0.3765830000047572,
+          0.37724999999045394,
+          0.38379200000781566,
+          0.385041999979876,
+          0.3704579999903217
+        ]
+      },
+      "processRssBytesBefore": 560824320,
+      "processRssBytesAfter": 565100544
+    },
+    {
+      "fixture": "corpus/variable-cff2.otf",
+      "inputBytes": 23312,
+      "inputSha256": "15950e8476a39d9c6e01fdc77b782047ae41e1a971fcf6a7372f9e92ed70dcb4",
+      "label": "zlib",
+      "kind": "woff1",
+      "options": {
+        "compression": "zlib"
+      },
+      "outputBytes": 14444,
+      "outputSha256": "c057c0971be47611fcede9b16295e440d6125117244a9efff93fc276a8401c1c",
+      "outputToInputRatio": 0.6195950583390528,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.5867910000088159,
+      "firstEncodeMs": 2.464750000013737,
+      "firstDecodeMs": 0.8687499999941792,
+      "encode": {
+        "medianMs": 0.728583999996772,
+        "minMs": 0.6938329999975394,
+        "maxMs": 0.8197090000030585,
+        "samplesMs": [
+          0.8043749999778811,
+          0.7480829999840353,
+          0.7194580000068527,
+          0.728583999996772,
+          0.7049169999954756,
+          0.6938329999975394,
+          0.8197090000030585
+        ]
+      },
+      "decode": {
+        "medianMs": 0.193541999993613,
+        "minMs": 0.18312500001047738,
+        "maxMs": 0.2730409999785479,
+        "samplesMs": [
+          0.20137500000419095,
+          0.193541999993613,
+          0.1919589999888558,
+          0.19324999998207204,
+          0.18312500001047738,
+          0.2730409999785479,
+          0.23541600001044571
+        ]
+      },
+      "processRssBytesBefore": 565116928,
+      "processRssBytesAfter": 566525952
+    },
+    {
+      "fixture": "corpus/variable-cff2.otf",
+      "inputBytes": 23312,
+      "inputSha256": "15950e8476a39d9c6e01fdc77b782047ae41e1a971fcf6a7372f9e92ed70dcb4",
+      "label": "zopfli-1",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 1
+      },
+      "outputBytes": 14076,
+      "outputSha256": "4343dfaae23e2f6e95878f48966e1914d57b8f071d41222a7d6f4d5765a6f9de",
+      "outputToInputRatio": 0.603809196980096,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 1.1423750000249129,
+      "firstEncodeMs": 809.4548749999958,
+      "firstDecodeMs": 0.25466700000106357,
+      "encode": {
+        "medianMs": 804.2563749999972,
+        "minMs": 796.0817080000124,
+        "maxMs": 809.6481249999779,
+        "samplesMs": [
+          800.788125000021,
+          796.0817080000124,
+          809.6481249999779,
+          805.0701249999984,
+          807.2973749999946,
+          804.2563749999972,
+          803.9726659999869
+        ]
+      },
+      "decode": {
+        "medianMs": 0.17262500000651926,
+        "minMs": 0.17104099999414757,
+        "maxMs": 0.19883300000219606,
+        "samplesMs": [
+          0.19883300000219606,
+          0.1724170000234153,
+          0.1719159999920521,
+          0.17604099999880418,
+          0.17104099999414757,
+          0.17262500000651926,
+          0.17624999998952262
+        ]
+      },
+      "processRssBytesBefore": 566525952,
+      "processRssBytesAfter": 569376768
+    },
+    {
+      "fixture": "corpus/variable-cff2.otf",
+      "inputBytes": 23312,
+      "inputSha256": "15950e8476a39d9c6e01fdc77b782047ae41e1a971fcf6a7372f9e92ed70dcb4",
+      "label": "zopfli-5",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 5
+      },
+      "outputBytes": 14040,
+      "outputSha256": "660d4d1e32d576a0bb71f80efd2728e3df88a14f5c853a6ae13707d7c355f505",
+      "outputToInputRatio": 0.6022649279341112,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.8776249999937136,
+      "firstEncodeMs": 834.8528749999823,
+      "firstDecodeMs": 0.23566700000083074,
+      "encode": {
+        "medianMs": 831.9575830000103,
+        "minMs": 825.9064999999828,
+        "maxMs": 835.882958000002,
+        "samplesMs": [
+          835.882958000002,
+          829.8556250000256,
+          834.9187919999822,
+          829.8663749999832,
+          835.2096669999883,
+          825.9064999999828,
+          831.9575830000103
+        ]
+      },
+      "decode": {
+        "medianMs": 0.1824999999953434,
+        "minMs": 0.1729170000180602,
+        "maxMs": 0.5144169999985024,
+        "samplesMs": [
+          0.1745000000228174,
+          0.1729170000180602,
+          0.5144169999985024,
+          0.1782919999677688,
+          0.4324999999953434,
+          0.19358299998566508,
+          0.1824999999953434
+        ]
+      },
+      "processRssBytesBefore": 569393152,
+      "processRssBytesAfter": 527237120
+    },
+    {
+      "fixture": "corpus/variable-cff2.otf",
+      "inputBytes": 23312,
+      "inputSha256": "15950e8476a39d9c6e01fdc77b782047ae41e1a971fcf6a7372f9e92ed70dcb4",
+      "label": "zopfli-15",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 15
+      },
+      "outputBytes": 14032,
+      "outputSha256": "c29ef737f7512aeefd7bf3b7a67f8f08c47b38b05091b60c65bc515be9a93945",
+      "outputToInputRatio": 0.6019217570350034,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.7376659999717958,
+      "firstEncodeMs": 884.236791000003,
+      "firstDecodeMs": 0.18333299999358132,
+      "encode": {
+        "medianMs": 890.0653749999474,
+        "minMs": 883.8798329999554,
+        "maxMs": 892.6517919999897,
+        "samplesMs": [
+          892.6517919999897,
+          890.1944580000127,
+          891.3068750000093,
+          883.8798329999554,
+          887.6735420000041,
+          890.0653749999474,
+          884.952707999968
+        ]
+      },
+      "decode": {
+        "medianMs": 0.18770800001220778,
+        "minMs": 0.18274999997811392,
+        "maxMs": 0.18879200000083074,
+        "samplesMs": [
+          0.18770800001220778,
+          0.18395899998722598,
+          0.18879200000083074,
+          0.18770800001220778,
+          0.18274999997811392,
+          0.1865830000024289,
+          0.18812499998603016
+        ]
+      },
+      "processRssBytesBefore": 527237120,
+      "processRssBytesAfter": 529678336
+    },
+    {
+      "fixture": "corpus/variable-cff2.otf",
+      "inputBytes": 23312,
+      "inputSha256": "15950e8476a39d9c6e01fdc77b782047ae41e1a971fcf6a7372f9e92ed70dcb4",
+      "label": "zopfli-30",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 30
+      },
+      "outputBytes": 14020,
+      "outputSha256": "f47bcc2f82795233e4286dd0179f0cb11082095c7f05bd22e90b5dbc9cc16c61",
+      "outputToInputRatio": 0.6014070006863418,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.771208000020124,
+      "firstEncodeMs": 996.15716599999,
+      "firstDecodeMs": 0.19516699999803677,
+      "encode": {
+        "medianMs": 996.3319580000243,
+        "minMs": 994.943041999999,
+        "maxMs": 998.2625409999746,
+        "samplesMs": [
+          996.3319580000243,
+          995.8942500000121,
+          998.2625409999746,
+          996.984625000041,
+          996.5248330000322,
+          995.8183340000105,
+          994.943041999999
+        ]
+      },
+      "decode": {
+        "medianMs": 0.18887500005075708,
+        "minMs": 0.18074999999953434,
+        "maxMs": 0.1911250000121072,
+        "samplesMs": [
+          0.18074999999953434,
+          0.18475000001490116,
+          0.18900000001303852,
+          0.18887500005075708,
+          0.18970899999840185,
+          0.18579099996713921,
+          0.1911250000121072
+        ]
+      },
+      "processRssBytesBefore": 529678336,
+      "processRssBytesAfter": 532086784
+    },
+    {
+      "fixture": "corpus/variable-cff2.otf",
+      "inputBytes": 23312,
+      "inputSha256": "15950e8476a39d9c6e01fdc77b782047ae41e1a971fcf6a7372f9e92ed70dcb4",
+      "label": "woff2-q4",
+      "kind": "woff2",
+      "options": {
+        "quality": 4,
+        "allowTransforms": true
+      },
+      "outputBytes": 13984,
+      "outputSha256": "337e825986d66ed6ee270bf1d63d82a9e3bf19fddb8641b0ad2c1eb55a6010ae",
+      "outputToInputRatio": 0.5998627316403569,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 1.9176250000018626,
+      "firstEncodeMs": 12.148334000026807,
+      "firstDecodeMs": 0.9458330000052229,
+      "encode": {
+        "medianMs": 0.6092080000089481,
+        "minMs": 0.5424580000108108,
+        "maxMs": 1.3292500000097789,
+        "samplesMs": [
+          1.3292500000097789,
+          0.7750840000226162,
+          0.6794169999775477,
+          0.6092080000089481,
+          0.6079580000368878,
+          0.5459999999729916,
+          0.5424580000108108
+        ]
+      },
+      "decode": {
+        "medianMs": 0.24299999995855615,
+        "minMs": 0.18550000002142042,
+        "maxMs": 0.28870800003642216,
+        "samplesMs": [
+          0.28870800003642216,
+          0.2812920000287704,
+          0.25433299998985603,
+          0.24299999995855615,
+          0.18945800000801682,
+          0.19541700003901497,
+          0.18550000002142042
+        ]
+      },
+      "processRssBytesBefore": 532086784,
+      "processRssBytesAfter": 534724608
+    },
+    {
+      "fixture": "corpus/variable-cff2.otf",
+      "inputBytes": 23312,
+      "inputSha256": "15950e8476a39d9c6e01fdc77b782047ae41e1a971fcf6a7372f9e92ed70dcb4",
+      "label": "woff2-q8",
+      "kind": "woff2",
+      "options": {
+        "quality": 8,
+        "allowTransforms": true
+      },
+      "outputBytes": 13936,
+      "outputSha256": "65c2654012c9598cc90f1f6706c665689437c17bb252496d31b6eea6955bd12e",
+      "outputToInputRatio": 0.5978037062457103,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 3.433792000054382,
+      "firstEncodeMs": 4.992207999981474,
+      "firstDecodeMs": 0.7301250000018626,
+      "encode": {
+        "medianMs": 1.3908340000198223,
+        "minMs": 1.3545000000158325,
+        "maxMs": 1.4166249999543652,
+        "samplesMs": [
+          1.4166249999543652,
+          1.3973750000004657,
+          1.3908340000198223,
+          1.3916249999892898,
+          1.3690419999766164,
+          1.3545000000158325,
+          1.360041999956593
+        ]
+      },
+      "decode": {
+        "medianMs": 0.254625000001397,
+        "minMs": 0.24779200000921264,
+        "maxMs": 0.2803340000100434,
+        "samplesMs": [
+          0.2687080000177957,
+          0.26020799996331334,
+          0.2803340000100434,
+          0.254625000001397,
+          0.24899999995250255,
+          0.2505000000237487,
+          0.24779200000921264
+        ]
+      },
+      "processRssBytesBefore": 534724608,
+      "processRssBytesAfter": 569966592
+    },
+    {
+      "fixture": "corpus/variable-cff2.otf",
+      "inputBytes": 23312,
+      "inputSha256": "15950e8476a39d9c6e01fdc77b782047ae41e1a971fcf6a7372f9e92ed70dcb4",
+      "label": "woff2-q11",
+      "kind": "woff2",
+      "options": {
+        "quality": 11,
+        "allowTransforms": true
+      },
+      "outputBytes": 12640,
+      "outputSha256": "19886084e6515d51dbf38c65070a292e41e554111e2cfb8a1d3ca6dafe31f7d1",
+      "outputToInputRatio": 0.5422100205902539,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 2.0605000000214204,
+      "firstEncodeMs": 50.695874999975786,
+      "firstDecodeMs": 0.3658339999965392,
+      "encode": {
+        "medianMs": 47.55283399997279,
+        "minMs": 37.33074999996461,
+        "maxMs": 48.29691699997056,
+        "samplesMs": [
+          47.73341699998127,
+          47.60120899998583,
+          46.14566699997522,
+          47.55283399997279,
+          48.29691699997056,
+          38.05125000001863,
+          37.33074999996461
+        ]
+      },
+      "decode": {
+        "medianMs": 0.2443329999805428,
+        "minMs": 0.23499999998603016,
+        "maxMs": 0.33691700000781566,
+        "samplesMs": [
+          0.24787500000093132,
+          0.23499999998603016,
+          0.33691700000781566,
+          0.2443329999805428,
+          0.2353749999892898,
+          0.24645899998722598,
+          0.24370799999451265
+        ]
+      },
+      "processRssBytesBefore": 570015744,
+      "processRssBytesAfter": 590331904
+    },
+    {
+      "fixture": "corpus/variable-cff2.otf",
+      "inputBytes": 23312,
+      "inputSha256": "15950e8476a39d9c6e01fdc77b782047ae41e1a971fcf6a7372f9e92ed70dcb4",
+      "label": "woff2-q11-no-transforms",
+      "kind": "woff2",
+      "options": {
+        "quality": 11,
+        "allowTransforms": false
+      },
+      "outputBytes": 12640,
+      "outputSha256": "19886084e6515d51dbf38c65070a292e41e554111e2cfb8a1d3ca6dafe31f7d1",
+      "outputToInputRatio": 0.5422100205902539,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 2.250041000021156,
+      "firstEncodeMs": 36.89391699997941,
+      "firstDecodeMs": 0.23441700002877042,
+      "encode": {
+        "medianMs": 37.25325000000885,
+        "minMs": 36.433791999996174,
+        "maxMs": 37.9965830000001,
+        "samplesMs": [
+          37.605458999983966,
+          37.9965830000001,
+          36.83866599999601,
+          36.433791999996174,
+          36.54550000000745,
+          37.75587499997346,
+          37.25325000000885
+        ]
+      },
+      "decode": {
+        "medianMs": 0.23416699998779222,
+        "minMs": 0.2308329999796115,
+        "maxMs": 0.25075000000651926,
+        "samplesMs": [
+          0.25075000000651926,
+          0.2329170000157319,
+          0.23149999999441206,
+          0.23858299996936694,
+          0.2308329999796115,
+          0.23512500000651926,
+          0.23416699998779222
+        ]
+      },
+      "processRssBytesBefore": 590331904,
+      "processRssBytesAfter": 584335360
+    },
+    {
+      "fixture": "corpus/cjk.otf",
+      "inputBytes": 6580,
+      "inputSha256": "6d3e4c15a2dbbf58447d3f72680759181a6379363967f2becf7e8ac36fc99819",
+      "label": "zlib",
+      "kind": "woff1",
+      "options": {
+        "compression": "zlib"
+      },
+      "outputBytes": 4564,
+      "outputSha256": "f8bf984917058096c4ae8a69c01c354d655cfc8e71b75882f6fdd87297f05c01",
+      "outputToInputRatio": 0.6936170212765957,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.6687079999828711,
+      "firstEncodeMs": 1.488707999989856,
+      "firstDecodeMs": 0.953417000011541,
+      "encode": {
+        "medianMs": 0.28795799997169524,
+        "minMs": 0.25054100004490465,
+        "maxMs": 0.4209170000394806,
+        "samplesMs": [
+          0.35275000002002344,
+          0.4209170000394806,
+          0.35095900000305846,
+          0.28795799997169524,
+          0.27495799999451265,
+          0.256915999983903,
+          0.25054100004490465
+        ]
+      },
+      "decode": {
+        "medianMs": 0.07362499996088445,
+        "minMs": 0.06687500001862645,
+        "maxMs": 0.09658300003502518,
+        "samplesMs": [
+          0.07454200001666322,
+          0.09658300003502518,
+          0.07816599996294826,
+          0.07220899994717911,
+          0.07362499996088445,
+          0.0677919999579899,
+          0.06687500001862645
+        ]
+      },
+      "processRssBytesBefore": 584335360,
+      "processRssBytesAfter": 586022912
+    },
+    {
+      "fixture": "corpus/cjk.otf",
+      "inputBytes": 6580,
+      "inputSha256": "6d3e4c15a2dbbf58447d3f72680759181a6379363967f2becf7e8ac36fc99819",
+      "label": "zopfli-1",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 1
+      },
+      "outputBytes": 4488,
+      "outputSha256": "7d12b0ffd6578801fbf8afe38fe2708b60f083c3d5ed95a761cded741c5cc78f",
+      "outputToInputRatio": 0.6820668693009119,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.845499999995809,
+      "firstEncodeMs": 321.850167000026,
+      "firstDecodeMs": 1.659125000005588,
+      "encode": {
+        "medianMs": 314.1204170000274,
+        "minMs": 311.79999999998836,
+        "maxMs": 320.07058300002245,
+        "samplesMs": [
+          313.6712079999852,
+          317.31200000003446,
+          314.1204170000274,
+          313.0906670000404,
+          320.07058300002245,
+          311.79999999998836,
+          316.6246670000255
+        ]
+      },
+      "decode": {
+        "medianMs": 0.08941700001014397,
+        "minMs": 0.08083399996394292,
+        "maxMs": 0.12012500001583248,
+        "samplesMs": [
+          0.08941700001014397,
+          0.10058299999218434,
+          0.09454199997708201,
+          0.12012500001583248,
+          0.08083399996394292,
+          0.08579199999803677,
+          0.08766699995612726
+        ]
+      },
+      "processRssBytesBefore": 586022912,
+      "processRssBytesAfter": 548864000
+    },
+    {
+      "fixture": "corpus/cjk.otf",
+      "inputBytes": 6580,
+      "inputSha256": "6d3e4c15a2dbbf58447d3f72680759181a6379363967f2becf7e8ac36fc99819",
+      "label": "zopfli-5",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 5
+      },
+      "outputBytes": 4476,
+      "outputSha256": "42ca14754ae8c34ee40f38836de7d6e6f13ab1f7a2da08ef05a60fdefcddaa2f",
+      "outputToInputRatio": 0.6802431610942249,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.8172090000007302,
+      "firstEncodeMs": 325.61141699994914,
+      "firstDecodeMs": 0.08370799996191636,
+      "encode": {
+        "medianMs": 323.64916699996684,
+        "minMs": 321.3780830000178,
+        "maxMs": 325.8682919999701,
+        "samplesMs": [
+          323.4477080000215,
+          323.64916699996684,
+          324.04816700000083,
+          323.15795899997465,
+          325.8682919999701,
+          325.11612500000047,
+          321.3780830000178
+        ]
+      },
+      "decode": {
+        "medianMs": 0.08441700000548735,
+        "minMs": 0.08233299996936694,
+        "maxMs": 0.09141599998110905,
+        "samplesMs": [
+          0.09141599998110905,
+          0.08233299996936694,
+          0.08479200000874698,
+          0.08433400001376867,
+          0.08441700000548735,
+          0.08391599997412413,
+          0.08754199999384582
+        ]
+      },
+      "processRssBytesBefore": 548864000,
+      "processRssBytesAfter": 550469632
+    },
+    {
+      "fixture": "corpus/cjk.otf",
+      "inputBytes": 6580,
+      "inputSha256": "6d3e4c15a2dbbf58447d3f72680759181a6379363967f2becf7e8ac36fc99819",
+      "label": "zopfli-15",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 15
+      },
+      "outputBytes": 4476,
+      "outputSha256": "1ce3f2bf2a6226ea743294af85ab254972acec59381417b77e8c668d0dd39cc6",
+      "outputToInputRatio": 0.6802431610942249,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.7322500000009313,
+      "firstEncodeMs": 347.41291700000875,
+      "firstDecodeMs": 0.08412500005215406,
+      "encode": {
+        "medianMs": 351.09437499998603,
+        "minMs": 346.99420799996005,
+        "maxMs": 354.94800000003306,
+        "samplesMs": [
+          348.57358399999794,
+          351.09437499998603,
+          351.2467080000206,
+          353.42149999999674,
+          349.18929100001696,
+          354.94800000003306,
+          346.99420799996005
+        ]
+      },
+      "decode": {
+        "medianMs": 0.08275000000139698,
+        "minMs": 0.0811659999890253,
+        "maxMs": 0.3217090000398457,
+        "samplesMs": [
+          0.08116699999663979,
+          0.08275000000139698,
+          0.09529200004180893,
+          0.0857079999987036,
+          0.0811659999890253,
+          0.08216599997831509,
+          0.3217090000398457
+        ]
+      },
+      "processRssBytesBefore": 550469632,
+      "processRssBytesAfter": 551993344
+    },
+    {
+      "fixture": "corpus/cjk.otf",
+      "inputBytes": 6580,
+      "inputSha256": "6d3e4c15a2dbbf58447d3f72680759181a6379363967f2becf7e8ac36fc99819",
+      "label": "zopfli-30",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 30
+      },
+      "outputBytes": 4468,
+      "outputSha256": "9222b119845008238c3112195d93b5ca6681e2273c2f901881ad4f56a00c2495",
+      "outputToInputRatio": 0.6790273556231003,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.7379590000491589,
+      "firstEncodeMs": 389.90641699999105,
+      "firstDecodeMs": 0.08799999998882413,
+      "encode": {
+        "medianMs": 388.95229200000176,
+        "minMs": 384.8698340000119,
+        "maxMs": 390.09324999997625,
+        "samplesMs": [
+          387.8520000000135,
+          384.8698340000119,
+          386.87683300004574,
+          390.0838750000112,
+          389.2138749999576,
+          390.09324999997625,
+          388.95229200000176
+        ]
+      },
+      "decode": {
+        "medianMs": 0.08208300004480407,
+        "minMs": 0.08145800000056624,
+        "maxMs": 0.08958299999358132,
+        "samplesMs": [
+          0.08491699997102842,
+          0.0816249999916181,
+          0.08191599999554455,
+          0.08958299999358132,
+          0.08145800000056624,
+          0.08208300004480407,
+          0.08533299999544397
+        ]
+      },
+      "processRssBytesBefore": 551993344,
+      "processRssBytesAfter": 553500672
+    },
+    {
+      "fixture": "corpus/cjk.otf",
+      "inputBytes": 6580,
+      "inputSha256": "6d3e4c15a2dbbf58447d3f72680759181a6379363967f2becf7e8ac36fc99819",
+      "label": "woff2-q4",
+      "kind": "woff2",
+      "options": {
+        "quality": 4,
+        "allowTransforms": true
+      },
+      "outputBytes": 4072,
+      "outputSha256": "723fb7a1db54ddd1d40b5dae05e9bea1a3895d0195543e9ef602a9238b4f7146",
+      "outputToInputRatio": 0.6188449848024317,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 1.8655840000137687,
+      "firstEncodeMs": 12.42112499999348,
+      "firstDecodeMs": 3.280124999990221,
+      "encode": {
+        "medianMs": 0.3122919999877922,
+        "minMs": 0.2736659999936819,
+        "maxMs": 0.3345409999601543,
+        "samplesMs": [
+          0.3345409999601543,
+          0.3279160000383854,
+          0.32195800001500174,
+          0.3122919999877922,
+          0.28795799997169524,
+          0.2919580000452697,
+          0.2736659999936819
+        ]
+      },
+      "decode": {
+        "medianMs": 0.08804100000998005,
+        "minMs": 0.08600000001024455,
+        "maxMs": 0.09562500001629815,
+        "samplesMs": [
+          0.09437499998603016,
+          0.09137500001816079,
+          0.09562500001629815,
+          0.08804100000998005,
+          0.08750000002328306,
+          0.08670899999560788,
+          0.08600000001024455
+        ]
+      },
+      "processRssBytesBefore": 553500672,
+      "processRssBytesAfter": 556285952
+    },
+    {
+      "fixture": "corpus/cjk.otf",
+      "inputBytes": 6580,
+      "inputSha256": "6d3e4c15a2dbbf58447d3f72680759181a6379363967f2becf7e8ac36fc99819",
+      "label": "woff2-q8",
+      "kind": "woff2",
+      "options": {
+        "quality": 8,
+        "allowTransforms": true
+      },
+      "outputBytes": 4024,
+      "outputSha256": "bec57e9864377bede56dbfc94475be1419bacd7eacfd05b08413757a723df504",
+      "outputToInputRatio": 0.6115501519756839,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 2.2742079999879934,
+      "firstEncodeMs": 1.7271249999757856,
+      "firstDecodeMs": 0.14454200002364814,
+      "encode": {
+        "medianMs": 0.3591249999590218,
+        "minMs": 0.34370800002943724,
+        "maxMs": 0.37120900000445545,
+        "samplesMs": [
+          0.3591249999590218,
+          0.3625419999589212,
+          0.37120900000445545,
+          0.3587079999851994,
+          0.3634169999859296,
+          0.35387499997159466,
+          0.34370800002943724
+        ]
+      },
+      "decode": {
+        "medianMs": 0.09383299999171868,
+        "minMs": 0.08779199997661635,
+        "maxMs": 0.10012499999720603,
+        "samplesMs": [
+          0.09383299999171868,
+          0.10012499999720603,
+          0.09245799999916926,
+          0.0972499999916181,
+          0.09274999995250255,
+          0.09483300003921613,
+          0.08779199997661635
+        ]
+      },
+      "processRssBytesBefore": 556990464,
+      "processRssBytesAfter": 581386240
+    },
+    {
+      "fixture": "corpus/cjk.otf",
+      "inputBytes": 6580,
+      "inputSha256": "6d3e4c15a2dbbf58447d3f72680759181a6379363967f2becf7e8ac36fc99819",
+      "label": "woff2-q11",
+      "kind": "woff2",
+      "options": {
+        "quality": 11,
+        "allowTransforms": true
+      },
+      "outputBytes": 3704,
+      "outputSha256": "00ea09db85febac6baa8ed86dde0a2fb282b29b60c327dd90bd95361f16d38df",
+      "outputToInputRatio": 0.562917933130699,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 3.7673329999670386,
+      "firstEncodeMs": 17.788791999977548,
+      "firstDecodeMs": 0.14320900000166148,
+      "encode": {
+        "medianMs": 14.071915999986231,
+        "minMs": 13.174083999998402,
+        "maxMs": 15.01587499998277,
+        "samplesMs": [
+          15.01587499998277,
+          14.107749999966472,
+          13.897208000009414,
+          13.41950000001816,
+          14.4694170000148,
+          13.174083999998402,
+          14.071915999986231
+        ]
+      },
+      "decode": {
+        "medianMs": 0.1013329999987036,
+        "minMs": 0.09420799999497831,
+        "maxMs": 0.12604100001044571,
+        "samplesMs": [
+          0.12333299999590963,
+          0.12604100001044571,
+          0.09666699997615069,
+          0.1013329999987036,
+          0.09420799999497831,
+          0.09645800001453608,
+          0.10287499998230487
+        ]
+      },
+      "processRssBytesBefore": 581386240,
+      "processRssBytesAfter": 607223808
+    },
+    {
+      "fixture": "corpus/cjk.otf",
+      "inputBytes": 6580,
+      "inputSha256": "6d3e4c15a2dbbf58447d3f72680759181a6379363967f2becf7e8ac36fc99819",
+      "label": "woff2-q11-no-transforms",
+      "kind": "woff2",
+      "options": {
+        "quality": 11,
+        "allowTransforms": false
+      },
+      "outputBytes": 3704,
+      "outputSha256": "00ea09db85febac6baa8ed86dde0a2fb282b29b60c327dd90bd95361f16d38df",
+      "outputToInputRatio": 0.562917933130699,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 2.1342920000315644,
+      "firstEncodeMs": 13.531542000011541,
+      "firstDecodeMs": 0.10608399996999651,
+      "encode": {
+        "medianMs": 13.489999999990687,
+        "minMs": 13.182374999974854,
+        "maxMs": 14.105125000001863,
+        "samplesMs": [
+          13.743834000022616,
+          13.198832999973092,
+          13.489999999990687,
+          13.492958999995608,
+          14.105125000001863,
+          13.282665999955498,
+          13.182374999974854
+        ]
+      },
+      "decode": {
+        "medianMs": 0.09537500003352761,
+        "minMs": 0.08770899998489767,
+        "maxMs": 0.32837499998277053,
+        "samplesMs": [
+          0.09312500001396984,
+          0.09537500003352761,
+          0.095082999963779,
+          0.32837499998277053,
+          0.10095799999544397,
+          0.08770899998489767,
+          0.09549999999580905
+        ]
+      },
+      "processRssBytesBefore": 607223808,
+      "processRssBytesAfter": 623640576
+    },
+    {
+      "fixture": "corpus/color-colrv1.ttf",
+      "inputBytes": 4240,
+      "inputSha256": "68ecd316a47a5c3cdd95a7b923e504a6fa1205c60980cbd028b54de0553f3251",
+      "label": "zlib",
+      "kind": "woff1",
+      "options": {
+        "compression": "zlib"
+      },
+      "outputBytes": 2740,
+      "outputSha256": "7422698c3cce38356959c8e8c902a44e7a0d9ce1084f8af08ffdcd49409f91f2",
+      "outputToInputRatio": 0.6462264150943396,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.8860420000273734,
+      "firstEncodeMs": 1.3363329999847338,
+      "firstDecodeMs": 0.6620000000111759,
+      "encode": {
+        "medianMs": 0.28241699998034164,
+        "minMs": 0.26679199998034164,
+        "maxMs": 0.9378330000326969,
+        "samplesMs": [
+          0.2851249999948777,
+          0.28241699998034164,
+          0.2743750000372529,
+          0.26850000000558794,
+          0.26679199998034164,
+          0.9378330000326969,
+          0.4157499999855645
+        ]
+      },
+      "decode": {
+        "medianMs": 0.05804199998965487,
+        "minMs": 0.05429200001526624,
+        "maxMs": 0.20308300002943724,
+        "samplesMs": [
+          0.0625,
+          0.05804199998965487,
+          0.05754099995829165,
+          0.056542000034824014,
+          0.05429200001526624,
+          0.20308300002943724,
+          0.07695899996906519
+        ]
+      },
+      "processRssBytesBefore": 623640576,
+      "processRssBytesAfter": 602505216
+    },
+    {
+      "fixture": "corpus/color-colrv1.ttf",
+      "inputBytes": 4240,
+      "inputSha256": "68ecd316a47a5c3cdd95a7b923e504a6fa1205c60980cbd028b54de0553f3251",
+      "label": "zopfli-1",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 1
+      },
+      "outputBytes": 2668,
+      "outputSha256": "59d16a5b7bc34ab0308534811ba70eead3e6140103ce0186129beda4c6e47b5c",
+      "outputToInputRatio": 0.629245283018868,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 1.1527910000295378,
+      "firstEncodeMs": 326.7160830000066,
+      "firstDecodeMs": 0.07512500003213063,
+      "encode": {
+        "medianMs": 309.03933300002245,
+        "minMs": 307.6517079999903,
+        "maxMs": 314.4305840000161,
+        "samplesMs": [
+          314.4305840000161,
+          308.10504200001014,
+          308.0215409999946,
+          310.23970900004497,
+          307.6517079999903,
+          309.03933300002245,
+          309.29837500001304
+        ]
+      },
+      "decode": {
+        "medianMs": 0.07645799999590963,
+        "minMs": 0.07345800002804026,
+        "maxMs": 0.10991699999431148,
+        "samplesMs": [
+          0.07466700003715232,
+          0.10991699999431148,
+          0.07595800003036857,
+          0.07645799999590963,
+          0.07345800002804026,
+          0.07658300001639873,
+          0.09116599999833852
+        ]
+      },
+      "processRssBytesBefore": 602505216,
+      "processRssBytesAfter": 610025472
+    },
+    {
+      "fixture": "corpus/color-colrv1.ttf",
+      "inputBytes": 4240,
+      "inputSha256": "68ecd316a47a5c3cdd95a7b923e504a6fa1205c60980cbd028b54de0553f3251",
+      "label": "zopfli-5",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 5
+      },
+      "outputBytes": 2656,
+      "outputSha256": "25b87b4023a961eecbd7da12069abf563de10a027d18639ac9428548abbd3226",
+      "outputToInputRatio": 0.6264150943396226,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.6790000000037253,
+      "firstEncodeMs": 314.34558300004574,
+      "firstDecodeMs": 0.07025000004796311,
+      "encode": {
+        "medianMs": 315.85350000002654,
+        "minMs": 313.9460830000462,
+        "maxMs": 317.48816700000316,
+        "samplesMs": [
+          315.85350000002654,
+          317.48816700000316,
+          313.9460830000462,
+          314.8738749999902,
+          315.89816699997755,
+          316.1655829999945,
+          314.03529200004414
+        ]
+      },
+      "decode": {
+        "medianMs": 0.0680409999913536,
+        "minMs": 0.06625000003259629,
+        "maxMs": 0.06937500002095476,
+        "samplesMs": [
+          0.06900000001769513,
+          0.06783299997914582,
+          0.06625000003259629,
+          0.06908300000941381,
+          0.06937500002095476,
+          0.0680409999913536,
+          0.06708299997262657
+        ]
+      },
+      "processRssBytesBefore": 610025472,
+      "processRssBytesAfter": 611385344
+    },
+    {
+      "fixture": "corpus/color-colrv1.ttf",
+      "inputBytes": 4240,
+      "inputSha256": "68ecd316a47a5c3cdd95a7b923e504a6fa1205c60980cbd028b54de0553f3251",
+      "label": "zopfli-15",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 15
+      },
+      "outputBytes": 2644,
+      "outputSha256": "553d9cb36729e844c2de34073d006080f46a6457af7dd8af2fe71a34d8a16928",
+      "outputToInputRatio": 0.6235849056603774,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.7506659999489784,
+      "firstEncodeMs": 334.319749999966,
+      "firstDecodeMs": 0.07220799999777228,
+      "encode": {
+        "medianMs": 335.39345899998443,
+        "minMs": 333.07762499997625,
+        "maxMs": 336.5775409999769,
+        "samplesMs": [
+          334.9741250000079,
+          335.600541999971,
+          336.5775409999769,
+          335.39345899998443,
+          333.07762499997625,
+          336.43050000001676,
+          335.1674999999814
+        ]
+      },
+      "decode": {
+        "medianMs": 0.07170800003223121,
+        "minMs": 0.06833300000289455,
+        "maxMs": 0.07500000001164153,
+        "samplesMs": [
+          0.07012500002747402,
+          0.07170800003223121,
+          0.06833300000289455,
+          0.07500000001164153,
+          0.07283399999141693,
+          0.0705420000012964,
+          0.07395900000119582
+        ]
+      },
+      "processRssBytesBefore": 611385344,
+      "processRssBytesAfter": 604356608
+    },
+    {
+      "fixture": "corpus/color-colrv1.ttf",
+      "inputBytes": 4240,
+      "inputSha256": "68ecd316a47a5c3cdd95a7b923e504a6fa1205c60980cbd028b54de0553f3251",
+      "label": "zopfli-30",
+      "kind": "woff1",
+      "options": {
+        "compression": "zopfli",
+        "iterations": 30
+      },
+      "outputBytes": 2644,
+      "outputSha256": "553d9cb36729e844c2de34073d006080f46a6457af7dd8af2fe71a34d8a16928",
+      "outputToInputRatio": 0.6235849056603774,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 0.79483299999265,
+      "firstEncodeMs": 363.2627499999944,
+      "firstDecodeMs": 0.7487500000279397,
+      "encode": {
+        "medianMs": 363.8704579999903,
+        "minMs": 361.725167000026,
+        "maxMs": 365.19625000003725,
+        "samplesMs": [
+          364.273542000039,
+          363.7245830000029,
+          364.86316599999554,
+          363.8422079999582,
+          365.19625000003725,
+          363.8704579999903,
+          361.725167000026
+        ]
+      },
+      "decode": {
+        "medianMs": 0.0684999999939464,
+        "minMs": 0.06641700002364814,
+        "maxMs": 0.08058299997355789,
+        "samplesMs": [
+          0.0684999999939464,
+          0.08058299997355789,
+          0.07099999999627471,
+          0.06654100003652275,
+          0.06641700002364814,
+          0.07191699999384582,
+          0.06691599998157471
+        ]
+      },
+      "processRssBytesBefore": 604356608,
+      "processRssBytesAfter": 601554944
+    },
+    {
+      "fixture": "corpus/color-colrv1.ttf",
+      "inputBytes": 4240,
+      "inputSha256": "68ecd316a47a5c3cdd95a7b923e504a6fa1205c60980cbd028b54de0553f3251",
+      "label": "woff2-q4",
+      "kind": "woff2",
+      "options": {
+        "quality": 4,
+        "allowTransforms": true
+      },
+      "outputBytes": 2104,
+      "outputSha256": "f2948b0ac3e954a6db166794994941c53097180c922ff193afdfd420fe41d3c6",
+      "outputToInputRatio": 0.4962264150943396,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 1.6799579999642447,
+      "firstEncodeMs": 12.121916999982204,
+      "firstDecodeMs": 0.6964169999700971,
+      "encode": {
+        "medianMs": 0.2846669999998994,
+        "minMs": 0.2727500000037253,
+        "maxMs": 0.31187500001396984,
+        "samplesMs": [
+          0.31187500001396984,
+          0.29249999998137355,
+          0.2954580000368878,
+          0.28070799994748086,
+          0.2846669999998994,
+          0.2727500000037253,
+          0.28437499998835847
+        ]
+      },
+      "decode": {
+        "medianMs": 0.07499999995343387,
+        "minMs": 0.07345899997744709,
+        "maxMs": 0.0870419999700971,
+        "samplesMs": [
+          0.08008400001563132,
+          0.0870419999700971,
+          0.07345899997744709,
+          0.07491700001992285,
+          0.07499999995343387,
+          0.08666599995922297,
+          0.07466699997894466
+        ]
+      },
+      "processRssBytesBefore": 601554944,
+      "processRssBytesAfter": 605274112
+    },
+    {
+      "fixture": "corpus/color-colrv1.ttf",
+      "inputBytes": 4240,
+      "inputSha256": "68ecd316a47a5c3cdd95a7b923e504a6fa1205c60980cbd028b54de0553f3251",
+      "label": "woff2-q8",
+      "kind": "woff2",
+      "options": {
+        "quality": 8,
+        "allowTransforms": true
+      },
+      "outputBytes": 2108,
+      "outputSha256": "e21eb7d30922cd9b38dad11a080c54c48bee1dc29c83aa0e6a7b91e75ae5cc9f",
+      "outputToInputRatio": 0.4971698113207547,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 1.7727089999825694,
+      "firstEncodeMs": 1.7580830000224523,
+      "firstDecodeMs": 0.09983299998566508,
+      "encode": {
+        "medianMs": 0.31674999999813735,
+        "minMs": 0.3113749999902211,
+        "maxMs": 0.3360419999808073,
+        "samplesMs": [
+          0.32237499998882413,
+          0.322541999979876,
+          0.31674999999813735,
+          0.3140830000047572,
+          0.3113749999902211,
+          0.3360419999808073,
+          0.3163749999948777
+        ]
+      },
+      "decode": {
+        "medianMs": 0.0756249999976717,
+        "minMs": 0.07454199995845556,
+        "maxMs": 0.08600000001024455,
+        "samplesMs": [
+          0.07625000004190952,
+          0.07720900001004338,
+          0.0756249999976717,
+          0.08600000001024455,
+          0.07454199995845556,
+          0.07516700000269338,
+          0.07516699994448572
+        ]
+      },
+      "processRssBytesBefore": 605274112,
+      "processRssBytesAfter": 624230400
+    },
+    {
+      "fixture": "corpus/color-colrv1.ttf",
+      "inputBytes": 4240,
+      "inputSha256": "68ecd316a47a5c3cdd95a7b923e504a6fa1205c60980cbd028b54de0553f3251",
+      "label": "woff2-q11",
+      "kind": "woff2",
+      "options": {
+        "quality": 11,
+        "allowTransforms": true
+      },
+      "outputBytes": 1992,
+      "outputSha256": "ecb3d863ec615beacf9c6981d21bd4d9e1941fc3b409434939ce4049199b8fa2",
+      "outputToInputRatio": 0.469811320754717,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 4.309041000029538,
+      "firstEncodeMs": 12.130292000016198,
+      "firstDecodeMs": 0.11179200001060963,
+      "encode": {
+        "medianMs": 8.588292000000365,
+        "minMs": 8.341333999997005,
+        "maxMs": 8.839916999975685,
+        "samplesMs": [
+          8.839916999975685,
+          8.708500000007916,
+          8.583625000028405,
+          8.588292000000365,
+          8.341333999997005,
+          8.411082999955397,
+          8.589166999969166
+        ]
+      },
+      "decode": {
+        "medianMs": 0.09358400001656264,
+        "minMs": 0.07641699997475371,
+        "maxMs": 0.11316599999554455,
+        "samplesMs": [
+          0.10462499997811392,
+          0.11316599999554455,
+          0.08716700004879385,
+          0.07641699997475371,
+          0.07970900001237169,
+          0.09358400001656264,
+          0.09545799996703863
+        ]
+      },
+      "processRssBytesBefore": 624230400,
+      "processRssBytesAfter": 638386176
+    },
+    {
+      "fixture": "corpus/color-colrv1.ttf",
+      "inputBytes": 4240,
+      "inputSha256": "68ecd316a47a5c3cdd95a7b923e504a6fa1205c60980cbd028b54de0553f3251",
+      "label": "woff2-q11-no-transforms",
+      "kind": "woff2",
+      "options": {
+        "quality": 11,
+        "allowTransforms": false
+      },
+      "outputBytes": 2104,
+      "outputSha256": "15a3b96f4e96d931275c4ef0253c53f7d5db80d6196c4e078c61092b37879458",
+      "outputToInputRatio": 0.4962264150943396,
+      "warnings": 0,
+      "removedTables": [],
+      "initializationMs": 1.927957999985665,
+      "firstEncodeMs": 8.100832999974955,
+      "firstDecodeMs": 1.2993330000317656,
+      "encode": {
+        "medianMs": 8.280792000005022,
+        "minMs": 8.176749999984168,
+        "maxMs": 8.45374999998603,
+        "samplesMs": [
+          8.213791999965906,
+          8.176749999984168,
+          8.379333000048064,
+          8.280792000005022,
+          8.371624999970663,
+          8.232207999972161,
+          8.45374999998603
+        ]
+      },
+      "decode": {
+        "medianMs": 0.07329099997878075,
+        "minMs": 0.06533300003502518,
+        "maxMs": 0.09320800000568852,
+        "samplesMs": [
+          0.08812500000931323,
+          0.0816249999916181,
+          0.09320800000568852,
+          0.07108299998799339,
+          0.06533300003502518,
+          0.07329099997878075,
+          0.07141600002069026
+        ]
+      },
+      "processRssBytesBefore": 638517248,
+      "processRssBytesAfter": 628998144
+    }
+  ]
+}

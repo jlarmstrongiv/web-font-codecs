@@ -1,0 +1,30 @@
+{
+  "source": "Unmodified test/fixtures/OpenSans-Regular.ttf and Rochester.otf",
+  "generated": {
+    "OpenSans-Regular.woff": "woff1-codec.encode; default version 1.0",
+    "OpenSans-Regular.woff2": "woff2-codec.encode; quality 11, allowTransforms true"
+  },
+  "regenerate": "npm run samples:build --workspace web-font-converter-web",
+  "codecWasmSha256": {
+    "woff1": "c832bed102ec691bc601305032b3d35208d0916fe77462908758592a47ed7b13",
+    "woff2": "722e8daff7f11f907f3e89bc656c17e7e56cbf1ecf75ea090d2a5b3ae13e63b9"
+  },
+  "files": {
+    "OpenSans-Regular.ttf": {
+      "bytes": 217360,
+      "sha256": "e64e508b2aa2880f907e470c4550980ec4c0694d103a43f36150ac3f93189bee"
+    },
+    "OpenSans-Regular.woff": {
+      "bytes": 112520,
+      "sha256": "abae55b0d62b766bc634bd29547d1500820390f69d03e542156f50df83321913"
+    },
+    "OpenSans-Regular.woff2": {
+      "bytes": 59820,
+      "sha256": "487a19fb6509ab8a2a83e82eb55051bbee2558c51ea6d5a9bf3132d2bed3b79c"
+    },
+    "Rochester.otf": {
+      "bytes": 27260,
+      "sha256": "235f7207a202026a0a73c38c64713d58eace082bdf605f5abd2a28166fab61aa"
+    }
+  }
+}
