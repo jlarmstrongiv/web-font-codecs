@@ -3,8 +3,8 @@ import { createFontConverter } from 'web-font-codecs';
 import { createWoff1Codec } from 'woff1-codec';
 import { createWoff2Codec } from 'woff2-codec';
 import type { CodecErrorCode, FontFormat } from 'web-font-codecs';
-using converter = createFontConverter({ woff1: { maxInputBytes: 100 } });
-const result = await converter.convert(new Uint8Array(), { to: 'woff2', encode: { quality: 8, allowTransforms: false } });
+using converter = await createFontConverter({ woff1: { maxInputBytes: 100 } });
+const result = converter.convert(new Uint8Array(), { to: 'woff2', encode: { quality: 8, allowTransforms: false } });
 const format: FontFormat = result.from;
 const bytes: Uint8Array<ArrayBuffer> = result.data;
 const warnings: string[] = result.warnings;
@@ -37,5 +37,5 @@ const wasmSources: WasmSource[] = [
 for (const wasm of wasmSources) {
   using sourceOne = await createWoff1Codec({ wasm });
   using sourceTwo = await createWoff2Codec({ wasm });
-  using sourceConverter = createFontConverter({ woff1: { wasm }, woff2: { wasm } });
+  using sourceConverter = await createFontConverter({ woff1: { wasm }, woff2: { wasm } });
 }

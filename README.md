@@ -22,8 +22,8 @@ npm install web-font-codecs
 import { readFile, writeFile } from "node:fs/promises";
 import { createFontConverter } from "web-font-codecs";
 
-using converter = createFontConverter();
-const result = await converter.convert(await readFile("font.ttf"), {
+using converter = await createFontConverter();
+const result = converter.convert(await readFile("font.ttf"), {
   to: "woff2",
 });
 await writeFile(`font.${result.extension}`, result.data);

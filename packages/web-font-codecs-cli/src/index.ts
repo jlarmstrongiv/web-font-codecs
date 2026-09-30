@@ -45,7 +45,7 @@ export async function main(args: string[] = process.argv.slice(2)): Promise<void
   if (values['zopfli-iterations'] !== undefined && compression !== 'zopfli') throw new Error('--zopfli-iterations requires --woff1-compression zopfli');
   const maxOutputBytes = Number(values['max-output-mib'] ?? 512) * 1024 * 1024;
   if (!Number.isInteger(maxOutputBytes) || maxOutputBytes < 1 || maxOutputBytes > 512 * 1024 * 1024) throw new Error('--max-output-mib must describe a positive whole byte count up to 512 MiB');
-  using converter = createFontConverter({ woff1: { maxOutputBytes }, woff2: { maxOutputBytes } });
+  using converter = await createFontConverter({ woff1: { maxOutputBytes }, woff2: { maxOutputBytes } });
   const options: ConversionOptions = to === 'woff2' ? { to: 'woff2', encode: { quality: Number(values.quality ?? 11) } } : to === 'woff1' ? { to: 'woff1', encode: compression === 'zopfli' ? { compression: 'zopfli', iterations: Number(values['zopfli-iterations'] ?? 15) } : { compression: 'zlib' } } : { to: 'sfnt' };
   let input: Buffer;
   if (inputPath === '-') input = await readInputStream(process.stdin);
@@ -53,7 +53,7 @@ export async function main(args: string[] = process.argv.slice(2)): Promise<void
     if ((await stat(inputPath)).size > maxInputBytes) throw new FontCodecError('LIMIT_EXCEEDED', 'Input exceeds 512 MiB');
     input = await readFile(inputPath);
   }
-  const result = await converter.convert(input, options);
+  const result = converter.convert(input, options);
   if ((extension === '.ttf' || extension === '.otf') && extension !== `.${result.extension}`) throw new Error(`Output extension ${extension} does not match this font's .${result.extension} outline flavor; use .${result.extension}. Conversion preserves outlines.`);
   if (values.output === '-') process.stdout.write(result.data);
   else await writeFile(values.output, result.data, { flag: values.force ? 'w' : 'wx' });

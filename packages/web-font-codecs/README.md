@@ -4,7 +4,7 @@ Convert fonts between TTF/OTF, WOFF and WOFF2 in Node or the browser.
 
 - Every direction: TTF/OTF to WOFF or WOFF2, back again, and WOFF to WOFF2.
 - Uses Mozilla's original WOFF codec and Google's WOFF2 codec, compiled to WebAssembly.
-- Loads only the codec a conversion needs.
+- Initializes both codecs once; conversions are synchronous.
 - Keeps outlines as they are. The result tells you whether to save it as `.ttf` or `.otf`.
 - Runs locally. No uploads, no CDN.
 
@@ -18,8 +18,8 @@ npm install web-font-codecs
 import { readFile, writeFile } from 'node:fs/promises';
 import { createFontConverter } from 'web-font-codecs';
 
-using converter = createFontConverter();
-const result = await converter.convert(await readFile('font.ttf'), { to: 'woff2' });
+using converter = await createFontConverter();
+const result = converter.convert(await readFile('font.ttf'), { to: 'woff2' });
 await writeFile(`font.${result.extension}`, result.data);
 ```
 
@@ -30,12 +30,12 @@ The same code works in the browser. Vite and Astro bundle the `.wasm` files auto
 ```ts
 import { createFontConverter } from 'web-font-codecs';
 
-using converter = createFontConverter({
+using converter = await createFontConverter({
   woff1: { wasm: '/assets/woff1.wasm' },
   woff2: { wasm: '/assets/woff2.wasm' },
 });
 const response = await fetch('/font.woff2');
-const result = await converter.convert(new Uint8Array(await response.arrayBuffer()), { to: 'sfnt' });
+const result = converter.convert(new Uint8Array(await response.arrayBuffer()), { to: 'sfnt' });
 ```
 
 `wasm` also accepts a `URL`, `Response`, bytes, compiled `WebAssembly.Module`, `ReadableStream<Uint8Array>`, or a promise of any of these.
@@ -45,9 +45,9 @@ Conversion blocks the thread it runs on and cannot be interrupted. For large fon
 ## Options
 
 ```ts
-await converter.convert(input, { to: 'sfnt' });
-await converter.convert(input, { to: 'woff1', encode: { compression: 'zopfli', iterations: 15 } });
-await converter.convert(input, { to: 'woff2', encode: { quality: 11, allowTransforms: true } });
+converter.convert(input, { to: 'sfnt' });
+converter.convert(input, { to: 'woff1', encode: { compression: 'zopfli', iterations: 15 } });
+converter.convert(input, { to: 'woff2', encode: { quality: 11, allowTransforms: true } });
 ```
 
 WOFF (`to: 'woff1'`):
@@ -100,14 +100,14 @@ Failures throw `FontCodecError` with a `code`: `INVALID_INPUT`, `UNSUPPORTED_FOR
 import { FontCodecError } from 'web-font-codecs';
 
 try {
-  await converter.convert(input, { to: 'woff2' });
+  converter.convert(input, { to: 'woff2' });
 } catch (error) {
   if (error instanceof FontCodecError && error.code === 'UNSUPPORTED_FORMAT') console.error(error.message);
   else throw error;
 }
 ```
 
-`using` (via `Symbol.dispose`) or `dispose()` releases both codecs; later calls throw `DISPOSED`. Results stay valid after disposal. If the WASM fails to load, the next `convert` tries again. If the WASM itself crashes (`CODEC_FAILURE`), create a new converter.
+`using` (via `Symbol.dispose`) or `dispose()` releases both codecs; later calls throw `DISPOSED`. Results stay valid after disposal. If the WASM fails to load, `createFontConverter()` rejects; retry initialization. If the WASM itself crashes (`CODEC_FAILURE`), create a new converter.
 
 ## License
 

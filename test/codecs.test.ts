@@ -67,14 +67,14 @@ test('repair names are decoded automatically and survive converter stages', asyn
   woffView.setUint32(60, woffView.getUint32(60) ^ 1); // First WOFF table's original checksum.
   assert.deepEqual(one.decode(damagedWoff).warnings, ['checksumMismatch']);
 
-  using converter = createFontConverter();
-  assert.deepEqual((await converter.convert(damagedSfnt, { to: 'woff1' })).warnings, ['checksumMismatch']);
+  using converter = await createFontConverter();
+  assert.deepEqual((converter.convert(damagedSfnt, { to: 'woff1' })).warnings, ['checksumMismatch']);
   for (const options of [{ to: 'sfnt' }, { to: 'woff2' }, { to: 'woff1', encode: {} }] as const) {
-    const result = await converter.convert(damagedWoff, options);
+    const result = converter.convert(damagedWoff, options);
     assert.deepEqual(result.warnings, ['checksumMismatch']);
     assert.equal(detectFormat(result.data), options.to);
   }
-  assert.deepEqual((await converter.convert(damagedWoff, { to: 'woff1' })).warnings, [], 'A same-format copy makes no repairs');
+  assert.deepEqual((converter.convert(damagedWoff, { to: 'woff1' })).warnings, [], 'A same-format copy makes no repairs');
 });
 test('Mozilla auxiliary metadata, private data and version roundtrip', () => {
   const metadata = new TextEncoder().encode('<?xml version="1.0"?><metadata version="1.0"><description><text>Example</text></description></metadata>');
@@ -97,17 +97,17 @@ test('returned bytes survive later calls, source views honor byteOffset, no inpu
   one.encode(fonts[1]!.bytes); assert.deepEqual(first, copy); assert.deepEqual(padded, snapshot);
 });
 test('unified converter supports every pair and records discarded auxiliary blocks', async () => {
-  using converter = createFontConverter();
+  using converter = await createFontConverter();
   const input = fonts[0]!.bytes;
   const variants = [input, one.encode(input, { privateData: Uint8Array.of(5) }).data, two.encode(input).data];
   for (const variant of variants) for (const to of ['sfnt','woff1','woff2'] as const) {
-    const result = await converter.convert(variant, { to });
+    const result = converter.convert(variant, { to });
     assert.equal(detectFormat(result.data), to);
     assert.deepEqual(result.warnings, []);
     if (variant === variants[1] && to !== 'woff1') assert.equal(result.discardedAuxiliaryData, true);
   }
-  assert.equal((await converter.convert(fonts[1]!.bytes, { to: 'sfnt' })).extension, 'otf');
-  converter.dispose(); await assert.rejects(converter.convert(input, { to: 'woff2' }), errorCode('DISPOSED'));
+  assert.equal((converter.convert(fonts[1]!.bytes, { to: 'sfnt' })).extension, 'otf');
+  converter.dispose(); assert.throws(() => converter.convert(input, { to: 'woff2' }), errorCode('DISPOSED'));
 });
 test('bad signatures, truncated directories, overlapping records and collections are rejected before native code', () => {
   for (const create of [one, two]) {
@@ -237,8 +237,8 @@ test('header length bombs and wrong formats fail within configured bounds', () =
   assert.throws(() => two.decode(one.encode(fonts[1]!.bytes).data),errorCode('UNSUPPORTED_FORMAT'));
 });
 test('same-format converter copies honor output limits', async () => {
-  using converter = createFontConverter({ woff1: { maxOutputBytes: 100 } });
-  await assert.rejects(converter.convert(one.encode(fonts[1]!.bytes).data, { to: 'woff1' }), errorCode('LIMIT_EXCEEDED'));
+  using converter = await createFontConverter({ woff1: { maxOutputBytes: 100 } });
+  assert.throws(() => converter.convert(one.encode(fonts[1]!.bytes).data, { to: 'woff1' }), errorCode('LIMIT_EXCEEDED'));
 
 });
 
@@ -285,31 +285,37 @@ test('using disposes the runtime and converter, including exceptional exit', asy
   assert.throws(() => runtime.run(fonts[1]!.bytes, 1), errorCode('DISPOSED'));
   runtime.dispose();
   for (const exceptional of [false, true]) {
-    const converter = createFontConverter();
+    const converter = await createFontConverter();
     const failure = new Error('scope failed');
     try {
       using owned = converter;
       assert.equal(owned[Symbol.dispose], owned.dispose);
-      const woff = await owned.convert(fonts[1]!.bytes, { to: 'woff1' });
-      assert.equal((await owned.convert(woff.data, { to: 'woff2' })).extension, 'woff2');
+      const woff = owned.convert(fonts[1]!.bytes, { to: 'woff1' });
+      assert.equal((owned.convert(woff.data, { to: 'woff2' })).extension, 'woff2');
       if (exceptional) throw failure;
     } catch (error) { assert.equal(error, failure); }
-    await assert.rejects(converter.convert(fonts[1]!.bytes, { to: 'sfnt' }), errorCode('DISPOSED'));
+    assert.throws(() => converter.convert(fonts[1]!.bytes, { to: 'sfnt' }), errorCode('DISPOSED'));
     converter.dispose();
     converter[Symbol.dispose]();
   }
 });
 
-test('scope exit during lazy initialization rejects the pending conversion', async () => {
+test('converter initialization waits for WASM and conversions return synchronously', async () => {
   const bytes = await readFile('packages/woff1-codec/wasm/codec.wasm');
   let release!: (bytes: Uint8Array<ArrayBuffer>) => void;
   const wasm = new Promise<Uint8Array<ArrayBuffer>>(resolve => { release = resolve; });
-  let conversion: ReturnType<ReturnType<typeof createFontConverter>['convert']>;
-  {
-    using converter = createFontConverter({ woff1: { wasm } });
-    conversion = converter.convert(fonts[1]!.bytes, { to: 'woff1' });
-  }
-  const rejected = assert.rejects(conversion, errorCode('DISPOSED'));
+  const initialization = createFontConverter({ woff1: { wasm } });
+  assert.ok(initialization instanceof Promise);
   release(bytes);
-  await rejected;
+  using converter = await initialization;
+  const result = converter.convert(fonts[1]!.bytes, { to: 'woff1' });
+  assert.equal(result instanceof Promise, false);
+  assert.equal(result.extension, 'woff');
+  assert.throws(() => converter.convert(new Uint8Array(), { to: 'woff2' }), errorCode('INVALID_INPUT'));
+});
+
+test('converter initialization rejects invalid WASM before any conversion', async () => {
+  for (const codec of ['woff1', 'woff2']) {
+    await assert.rejects(createFontConverter({ [codec]: { wasm: new Uint8Array() } }), errorCode('WASM_INIT'));
+  }
 });
