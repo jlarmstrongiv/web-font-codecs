@@ -342,3 +342,29 @@ test('converter loads WOFF2 while WOFF1 is still pending', async () => {
     using converter = await initialization;
   }
 });
+
+test('converter initializes only selected codecs and rejects conversions needing disabled codecs', async () => {
+  const input = fonts[1]!.bytes;
+  for (const enabled of ['woff1', 'woff2'] as const) {
+    const disabled = enabled === 'woff1' ? 'woff2' : 'woff1';
+    using converter = await createFontConverter({ codecs: [enabled], [disabled]: { wasm: new Uint8Array() } });
+    const encoded = converter.convert(input, { to: enabled });
+    assert.equal(detectFormat(encoded.data), enabled);
+    assert.equal(converter.convert(encoded.data, { to: 'sfnt' }).extension, 'otf');
+    const unsupported = disabled === 'woff1' ? one.encode(input).data : two.encode(input).data;
+    for (const [bytes, to] of [[input, disabled], [unsupported, 'sfnt'], [unsupported, enabled], [encoded.data, disabled]] as const) {
+      assert.throws(() => converter.convert(bytes, { to }), error =>
+        errorCode('UNSUPPORTED_FORMAT')(error) && (error as Error).message.includes(disabled.toUpperCase()));
+    }
+    assert.deepEqual(converter.convert(unsupported, { to: disabled }).data, unsupported);
+    assert.throws(() => converter.convert(unsupported, { to: disabled, encode: {} }), errorCode('UNSUPPORTED_FORMAT'));
+  }
+});
+
+test('converter accepts no codecs for copies and rejects invalid codec selections', async () => {
+  using converter = await createFontConverter({ codecs: [], woff1: { wasm: new Uint8Array() }, woff2: { wasm: new Uint8Array() } });
+  assert.deepEqual(converter.convert(fonts[1]!.bytes, { to: 'sfnt' }).data, fonts[1]!.bytes);
+  for (const codecs of [['sfnt'], ['woff3'], 'woff2', null]) {
+    await assert.rejects(createFontConverter({ codecs } as unknown as Parameters<typeof createFontConverter>[0]), errorCode('INVALID_OPTION'));
+  }
+});

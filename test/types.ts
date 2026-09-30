@@ -4,6 +4,9 @@ import { createWoff1Codec } from 'woff1-codec';
 import { createWoff2Codec } from 'woff2-codec';
 import type { CodecErrorCode, FontFormat } from 'web-font-codecs';
 using converter = await createFontConverter({ woff1: { maxInputBytes: 100 } });
+using selected = await createFontConverter({ codecs: ['woff2'] as const });
+// @ts-expect-error SFNT is a container format, not a selectable codec
+void createFontConverter({ codecs: ['sfnt'] });
 const result = converter.convert(new Uint8Array(), { to: 'woff2', encode: { quality: 8, allowTransforms: false } });
 const format: FontFormat = result.from;
 const bytes: Uint8Array<ArrayBuffer> = result.data;

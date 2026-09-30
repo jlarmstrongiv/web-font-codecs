@@ -4,7 +4,7 @@ Convert fonts between TTF/OTF, WOFF and WOFF2 in Node or the browser.
 
 - Every direction: TTF/OTF to WOFF or WOFF2, back again, and WOFF to WOFF2.
 - Uses Mozilla's original WOFF codec and Google's WOFF2 codec, compiled to WebAssembly.
-- Initializes both codecs once; conversions are synchronous.
+- Initializes enabled codecs concurrently (both by default); conversions are synchronous.
 - Keeps outlines as they are. The result tells you whether to save it as `.ttf` or `.otf`.
 - Runs locally. No uploads, no CDN.
 
@@ -43,6 +43,8 @@ const result = converter.convert(new Uint8Array(await response.arrayBuffer()), {
 Conversion blocks the thread it runs on and cannot be interrupted. For large fonts or Zopfli, run it in a Worker and call `worker.terminate()` to cancel.
 
 ## Options
+
+Use `await createFontConverter({ codecs: ['woff2'] })` to load only WOFF2. Conversions requiring a disabled codec throw `UNSUPPORTED_FORMAT`; same-format copies need no codec.
 
 ```ts
 converter.convert(input, { to: 'sfnt' });
