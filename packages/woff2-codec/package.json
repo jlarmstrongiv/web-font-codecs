@@ -34,7 +34,7 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "web-font-codecs": "0.1.0"
+    "web-font-codecs-core": "0.1.0"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

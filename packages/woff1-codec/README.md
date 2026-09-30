@@ -8,7 +8,7 @@ Encode and decode WOFF fonts with Mozilla's original WOFF codec, compiled to Web
 - Reports each repair Mozilla makes, by name.
 - Node and browser, with TypeScript types.
 
-Most apps should use [`web-font-converter`](../web-font-converter/README.md), which picks the codec for you. Use this package when you only need WOFF or want its metadata.
+Most apps should use [`web-font-codecs`](../web-font-codecs/README.md), which picks the codec for you. Use this package when you only need WOFF or want its metadata.
 
 ```sh
 npm install woff1-codec

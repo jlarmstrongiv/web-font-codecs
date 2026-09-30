@@ -4,7 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {createWoff1Codec} from 'woff1-codec';
 import {createWoff2Codec} from 'woff2-codec';
-import {FontCodecError} from 'web-font-codecs';
+import {FontCodecError} from 'web-font-codecs-core';
 const directory='test/fixtures/corpus';
 const provenance=JSON.parse(await readFile(`${directory}/provenance.json`,'utf8')) as {records:{name:string;sha256:string;licenseSha256:string;axes:string[];colrVersion:number|null;unicode:number[]}[]};
 function tables(bytes:Uint8Array){

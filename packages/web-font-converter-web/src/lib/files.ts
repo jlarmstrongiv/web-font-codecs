@@ -1,5 +1,5 @@
-import { detectFormat } from 'web-font-converter';
-import type { ConversionResult, FontFormat } from 'web-font-converter';
+import { detectFormat } from 'web-font-codecs';
+import type { ConversionResult, FontFormat } from 'web-font-codecs';
 export const MAX_INPUT_BYTES = 512 * 1024 * 1024;
 export const FORMAT_LABELS: Record<FontFormat, string> = { sfnt: 'TTF / OTF', woff1: 'WOFF', woff2: 'WOFF2' };
 export const MIME_TYPES: Record<ConversionResult['extension'], string> = { ttf: 'font/ttf', otf: 'font/otf', woff: 'font/woff', woff2: 'font/woff2' };

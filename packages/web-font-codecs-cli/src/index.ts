@@ -1,10 +1,10 @@
 import { parseArgs } from 'node:util';
 import { extname } from 'node:path';
 import { readFile, writeFile, stat } from 'node:fs/promises';
-import { createFontConverter, FontCodecError } from 'web-font-converter';
-import type { ConversionOptions } from 'web-font-converter';
+import { createFontConverter, FontCodecError } from 'web-font-codecs';
+import type { ConversionOptions } from 'web-font-codecs';
 import { maxInputBytes, readInputStream } from './input.ts';
-export const usage = `Usage: web-font-converter-cli INPUT --output OUTPUT [--to sfnt|woff1|woff2]
+export const usage = `Usage: web-font-codecs-cli INPUT --output OUTPUT [--to sfnt|woff1|woff2]
 
 Convert a single TTF/OTF/WOFF/WOFF2 locally. Infer the target from OUTPUT:
 .woff => woff1, .woff2 => woff2, .ttf/.otf => sfnt (case-insensitive).

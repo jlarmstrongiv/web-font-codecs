@@ -1,8 +1,8 @@
 /** Compile-only public API expectations, including invalid discriminated options. */
-import { createFontConverter } from 'web-font-converter';
+import { createFontConverter } from 'web-font-codecs';
 import { createWoff1Codec } from 'woff1-codec';
 import { createWoff2Codec } from 'woff2-codec';
-import type { CodecErrorCode, FontFormat } from 'web-font-converter';
+import type { CodecErrorCode, FontFormat } from 'web-font-codecs';
 using converter = createFontConverter({ woff1: { maxInputBytes: 100 } });
 const result = await converter.convert(new Uint8Array(), { to: 'woff2', encode: { quality: 8, allowTransforms: false } });
 const format: FontFormat = result.from;
@@ -25,7 +25,7 @@ const code: CodecErrorCode = 'LIMIT_EXCEEDED';
 void [format,bytes,collection,code];
 
 // All public factories accept asynchronous WASM sources.
-import type { WasmSource } from 'web-font-converter';
+import type { WasmSource } from 'web-font-codecs';
 const sourceBytes = new Uint8Array();
 const sourceStream = new ReadableStream<Uint8Array>();
 const thenable: PromiseLike<Uint8Array<ArrayBuffer>> = Promise.resolve(sourceBytes);

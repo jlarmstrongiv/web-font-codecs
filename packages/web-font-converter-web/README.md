@@ -1,6 +1,6 @@
 # web-font-converter-web
 
-The browser demo for [`web-font-converter`](../web-font-converter/README.md). [Try it](https://jlarmstrongiv.github.io/web-font-codecs/).
+The browser demo for [`web-font-codecs`](../web-font-codecs/README.md). [Try it](https://jlarmstrongiv.github.io/web-font-codecs/).
 
 Drop in a TTF, OTF, WOFF or WOFF2 file, pick an output format, and download the result. The font never leaves your browser.
 
@@ -13,7 +13,7 @@ Drop in a TTF, OTF, WOFF or WOFF2 file, pick an output format, and download the 
 
 Conversion runs in a Web Worker. Cancel terminates the worker; Retry, a new font, or a new option starts over. Limits match the library: single fonts only, 512 MiB in and out, and no TrueType to CFF conversion.
 
-The demo is deployed to [GitHub Pages](https://jlarmstrongiv.github.io/web-font-codecs/). To convert fonts in your own app, use [`web-font-converter`](../web-font-converter/README.md).
+The demo is deployed to [GitHub Pages](https://jlarmstrongiv.github.io/web-font-codecs/). To convert fonts in your own app, use [`web-font-codecs`](../web-font-codecs/README.md).
 
 ## Develop
 

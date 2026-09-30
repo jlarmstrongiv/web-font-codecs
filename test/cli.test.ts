@@ -4,12 +4,12 @@ import { mkdtemp, readFile, rm, writeFile, truncate } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { execute } from '../scripts/process.ts';
-import { detectFormat } from 'web-font-codecs';
+import { detectFormat } from 'web-font-codecs-core';
 import { spawn } from 'node:child_process';
 import { Readable } from 'node:stream';
-import { readInputStream } from '../packages/web-font-converter-cli/src/input.ts';
+import { readInputStream } from '../packages/web-font-codecs-cli/src/input.ts';
 import type { ProcessResult } from '../scripts/process.ts';
-const cli = resolve('packages/web-font-converter-cli/src/cli.ts');
+const cli = resolve('packages/web-font-codecs-cli/src/cli.ts');
 const fixture = resolve('test/fixtures/Rochester.otf');
 function run(args: string[]) { return execute(process.execPath, ['--conditions=web-font-codecs:source',cli,...args]); }
 function pipeInput(args: string[], input: Uint8Array): Promise<ProcessResult> {
@@ -72,7 +72,7 @@ test('stdin reader bounds chunks, stops consuming on overflow and propagates str
   assert.equal(broken.destroyed, true);
 });
 test('CLI help, binary stdout, format choices and errors', async () => {
-  assert.match((await run(['--help'])).stdout.toString(), /Usage: web-font-converter-cli INPUT/);
+  assert.match((await run(['--help'])).stdout.toString(), /Usage: web-font-codecs-cli INPUT/);
   const result = (await run([fixture,'--to','woff2','--quality','3','-o','-']));
   assert.equal(result.status,0,result.stderr.toString()); assert.equal(detectFormat(result.stdout),'woff2');
   assert.doesNotMatch(result.stderr.toString(), /repaired font data/);

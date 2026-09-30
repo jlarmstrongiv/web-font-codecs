@@ -1,4 +1,4 @@
-# web-font-converter-cli
+# web-font-codecs-cli
 
 Convert fonts between TTF/OTF, WOFF and WOFF2 from the command line.
 
@@ -11,25 +11,25 @@ Convert fonts between TTF/OTF, WOFF and WOFF2 from the command line.
 Requires Node 24 or later.
 
 ```sh
-npx web-font-converter-cli font.ttf -o font.woff2
+npx web-font-codecs-cli font.ttf -o font.woff2
 ```
 
 Or install globally:
 
 ```sh
-npm install -g web-font-converter-cli
-web-font-converter-cli font.ttf -o font.woff2
+npm install -g web-font-codecs-cli
+web-font-codecs-cli font.ttf -o font.woff2
 ```
 
 ## Examples
 
 ```sh
-web-font-converter-cli font.ttf -o font.woff
-web-font-converter-cli font.ttf -o font.woff --woff1-compression zopfli --zopfli-iterations 15
-web-font-converter-cli font.otf -o font.woff2 --quality 8
-web-font-converter-cli font.woff2 -o font.otf
-web-font-converter-cli font.woff --to woff2 -o - > font.woff2
-cat font.ttf | web-font-converter-cli - -o font.woff2
+web-font-codecs-cli font.ttf -o font.woff
+web-font-codecs-cli font.ttf -o font.woff --woff1-compression zopfli --zopfli-iterations 15
+web-font-codecs-cli font.otf -o font.woff2 --quality 8
+web-font-codecs-cli font.woff2 -o font.otf
+web-font-codecs-cli font.woff --to woff2 -o - > font.woff2
+cat font.ttf | web-font-codecs-cli - -o font.woff2
 ```
 
 The output extension sets the format: `.woff` is WOFF, `.woff2` is WOFF2, `.ttf` and `.otf` decode to TTF/OTF. Use `--to` when writing to stdout (`-o -`) or to another extension.
@@ -49,7 +49,7 @@ Decoding keeps the font's outlines, so the extension must match them: TrueType f
 | `--force` | off | Overwrite an existing output file |
 | `-h`, `--help` | | Print help |
 
-WOFF2 glyph transforms are always on. WOFF metadata, private data and container version are available through the [`web-font-converter`](../web-font-converter/README.md) API, not the CLI.
+WOFF2 glyph transforms are always on. WOFF metadata, private data and container version are available through the [`web-font-codecs`](../web-font-codecs/README.md) API, not the CLI.
 
 ## Behavior
 
@@ -61,7 +61,7 @@ WOFF2 glyph transforms are always on. WOFF metadata, private data and container 
 
 ## Use from Node
 
-The package also exports `main(args?: string[]): Promise<void>`, which runs the command, and `reportError(error: unknown): void`, which prints an error and sets `process.exitCode` to 1. `usage` holds the help text. For converting bytes in your own code, use [`web-font-converter`](../web-font-converter/README.md).
+The package also exports `main(args?: string[]): Promise<void>`, which runs the command, and `reportError(error: unknown): void`, which prints an error and sets `process.exitCode` to 1. `usage` holds the help text. For converting bytes in your own code, use [`web-font-codecs`](../web-font-codecs/README.md).
 
 ## License
 

@@ -1,7 +1,7 @@
-import { createRuntime, FontCodecError, integerOption, validateFont } from 'web-font-codecs';
-import type { CodecInitOptions, CodecLifecycle, CodecResult, WasmSource } from 'web-font-codecs';
-export { FontCodecError } from 'web-font-codecs';
-export type { CodecInitOptions, CodecLimits, CodecResult, WasmSource, CodecErrorCode } from 'web-font-codecs';
+import { createRuntime, FontCodecError, integerOption, validateFont } from 'web-font-codecs-core';
+import type { CodecInitOptions, CodecLifecycle, CodecResult, WasmSource } from 'web-font-codecs-core';
+export { FontCodecError } from 'web-font-codecs-core';
+export type { CodecInitOptions, CodecLimits, CodecResult, WasmSource, CodecErrorCode } from 'web-font-codecs-core';
 export interface Woff2EncodeOptions {
   /** Brotli quality from 0 to 11. Default: 11 (Google's default). */
   quality?: number;

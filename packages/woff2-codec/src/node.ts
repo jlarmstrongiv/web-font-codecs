@@ -1,8 +1,8 @@
 import { readFile } from 'node:fs/promises';
 import { createWoff2CodecFromSource, wasmUrl } from './index.ts';
 import type { Woff2Codec } from './index.ts';
-import { FontCodecError } from 'web-font-codecs';
-import type { CodecInitOptions } from 'web-font-codecs';
+import { FontCodecError } from 'web-font-codecs-core';
+import type { CodecInitOptions } from 'web-font-codecs-core';
 export * from './index.ts';
 export async function createWoff2Codec(options: CodecInitOptions = {}): Promise<Woff2Codec> {
   try {

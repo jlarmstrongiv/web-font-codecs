@@ -7,7 +7,7 @@ Encode and decode WOFF2 fonts with Google's WOFF2 codec and Brotli, compiled to 
 - Brotli quality 0 to 11, and glyph transforms on or off.
 - Node and browser, with TypeScript types.
 
-Most apps should use [`web-font-converter`](../web-font-converter/README.md), which picks the codec for you. Use this package when you only need WOFF2.
+Most apps should use [`web-font-codecs`](../web-font-codecs/README.md), which picks the codec for you. Use this package when you only need WOFF2.
 
 ```sh
 npm install woff2-codec

@@ -5,7 +5,7 @@ import { readFile, mkdtemp, rm, mkdir } from 'node:fs/promises';
 import { extname, join, resolve, sep } from 'node:path';
 import { tmpdir } from 'node:os';
 import assert from 'node:assert/strict';
-import { detectFormat } from 'web-font-codecs';
+import { detectFormat } from 'web-font-codecs-core';
 import { createWoff1Codec } from 'woff1-codec';
 import { createWoff2Codec } from 'woff2-codec';
 const base = process.env.ASTRO_BASE_PATH ?? '/';
@@ -40,7 +40,7 @@ try {
   page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
   page.on('request',request=>requests.push({method:request.method(),url:request.url()}));
   const html = await (await page.request.get(origin+'/')).text();
-  assert.match(html,/web-font-converter/);assert.match(html,/data-css-hash/); // Styled SSR before hydration.
+  assert.match(html,/web-font-codecs/);assert.match(html,/data-css-hash/); // Styled SSR before hydration.
   await page.goto(origin+'/');
   await page.locator('astro-island:not([ssr])').waitFor();
   const disclosure=page.locator('.advanced-options-collapse');

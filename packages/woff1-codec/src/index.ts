@@ -2,10 +2,10 @@
  * Copyright (c) 2026 John L. Armstrong IV. See LICENSE-MPL-1.1 / package LICENSE.
  * This WOFF1-specific file is subject to Mozilla Public License 1.1.
  */
-import { createRuntime, FontCodecError, integerOption, validateFont } from 'web-font-codecs';
-import type { CodecInitOptions, CodecLifecycle, CodecResult, WasmSource } from 'web-font-codecs';
-export { FontCodecError } from 'web-font-codecs';
-export type { CodecInitOptions, CodecLimits, CodecResult, WasmSource, CodecErrorCode } from 'web-font-codecs';
+import { createRuntime, FontCodecError, integerOption, validateFont } from 'web-font-codecs-core';
+import type { CodecInitOptions, CodecLifecycle, CodecResult, WasmSource } from 'web-font-codecs-core';
+export { FontCodecError } from 'web-font-codecs-core';
+export type { CodecInitOptions, CodecLimits, CodecResult, WasmSource, CodecErrorCode } from 'web-font-codecs-core';
 /** Native Mozilla repair flags, decoded automatically in CodecResult.warnings. */
 export const WOFF1_WARNINGS = {
   unknownVersion: 0x0100,

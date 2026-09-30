@@ -3,12 +3,12 @@ import { Alert, App, Button, Card, Col, Collapse, ConfigProvider, Divider, Input
 import { DownloadOutlined, FileTextOutlined, InboxOutlined, LoadingOutlined, SwapOutlined } from '@ant-design/icons';
 import prettyBytes from 'pretty-bytes';
 import prettyMs from 'pretty-ms';
-import type { FontFormat } from 'web-font-converter';
+import type { FontFormat } from 'web-font-codecs';
 import type { Reply, Request } from '../worker.ts';
 import { FORMAT_LABELS, MIME_TYPES, inspectFile, outputName } from '../lib/files.ts';
 import type { SelectedFont } from '../lib/files.ts';
 import { FeatureGrid } from './FeatureGrid.tsx';
-import packageInfo from '../../../web-font-converter/package.json';
+import packageInfo from '../../../web-font-codecs/package.json';
 import './converter.css';
 
 const { Title, Paragraph, Text } = Typography;
@@ -121,7 +121,7 @@ function ConverterBody() {
   const sizeDifference = output ? 100 * (1 - output.size / output.inputSize) : 0;
   return <main className="converter-shell">
     <header className="converter-header">
-      <Space align="baseline" wrap><Title level={1} style={{ margin: 0 }}>web-font-converter</Title><Text type="secondary">{packageInfo.version}</Text></Space>
+      <Space align="baseline" wrap><Title level={1} style={{ margin: 0 }}>web-font-codecs</Title><Text type="secondary">{packageInfo.version}</Text></Space>
       <Paragraph type="secondary" style={{ fontSize: 16, marginTop: 12 }}>Convert TTF/OTF, WOFF and WOFF2 fonts in your browser. Results update automatically when you choose a font or change the options.</Paragraph>
     </header>
     <FeatureGrid />

@@ -1,6 +1,6 @@
 import './lib/dispose.ts';
-import { createFontConverter, FontCodecError } from 'web-font-converter';
-import type { CodecErrorCode, ConversionOptions, ConversionResult } from 'web-font-converter';
+import { createFontConverter, FontCodecError } from 'web-font-codecs';
+import type { CodecErrorCode, ConversionOptions, ConversionResult } from 'web-font-codecs';
 export interface Request { bytes: ArrayBuffer; options: ConversionOptions }
 export type Reply = { ok: true; result: ConversionResult } | { ok: false; error: string; code?: CodecErrorCode };
 const converter = createFontConverter();

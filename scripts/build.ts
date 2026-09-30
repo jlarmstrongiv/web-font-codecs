@@ -19,7 +19,7 @@ for (const codec of ['woff1','woff2']) {
   const actual = createHash('sha256').update(bytes).digest('hex');
   if (actual !== artifacts.sha256[codec]) throw new Error(`${codec} WASM hash mismatch: rebuild from source`);
 }
-const packages = ['web-font-codecs', 'woff1-codec', 'woff2-codec', 'web-font-converter', 'web-font-converter-cli'];
+const packages = ['web-font-codecs-core', 'woff1-codec', 'woff2-codec', 'web-font-codecs', 'web-font-codecs-cli'];
 const selected = process.argv[2];
 if (selected && !packages.includes(selected)) throw new Error(`Unknown package: ${selected}`);
 for (const name of selected ? [selected] : packages) {
@@ -27,7 +27,7 @@ for (const name of selected ? [selected] : packages) {
   await rm(`${root}/dist`, { recursive: true, force: true });
   const entries: Record<string, string> = { index: `${root}/src/index.ts` };
   if (name === 'woff1-codec' || name === 'woff2-codec') entries.node = `${root}/src/node.ts`;
-  if (name === 'web-font-converter-cli') entries.cli = `${root}/src/cli.ts`;
+  if (name === 'web-font-codecs-cli') entries.cli = `${root}/src/cli.ts`;
   const bundle = await rolldown({ input: entries, external: [...packages, /^node:/], plugins: [dts({ tsconfig: `${root}/tsconfig.json`, sourcemap: true })] });
   await bundle.write({ dir: `${root}/dist`, format: 'es', sourcemap: true });
   await bundle.close();

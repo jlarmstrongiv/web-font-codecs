@@ -1,4 +1,4 @@
-import { FontCodecError } from 'web-font-converter';
+import { FontCodecError } from 'web-font-codecs';
 
 export const maxInputBytes = 512 * 1024 * 1024;
 

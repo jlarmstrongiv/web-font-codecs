@@ -1,8 +1,8 @@
 {
-  "name": "web-font-converter",
+  "name": "web-font-codecs-cli",
   "version": "0.1.0",
   "type": "module",
-  "description": "Typed browser and Node conversion between SFNT, WOFF1 and WOFF2.",
+  "description": "Local command line conversion between SFNT, WOFF1 and WOFF2.",
   "license": "MIT",
   "engines": {
     "node": ">=24"
@@ -29,20 +29,21 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "web-font-codecs": "0.1.0",
-    "woff1-codec": "0.1.0",
-    "woff2-codec": "0.1.0"
+    "web-font-codecs": "0.1.0"
+  },
+  "bin": {
+    "web-font-codecs-cli": "./dist/cli.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "node ../../scripts/build.ts web-font-converter",
-    "prepack": "node ../../scripts/build.ts web-font-converter"
+    "build": "node ../../scripts/build.ts web-font-codecs-cli",
+    "prepack": "node ../../scripts/build.ts web-font-codecs-cli"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jlarmstrongiv/web-font-codecs.git",
-    "directory": "packages/web-font-converter"
+    "directory": "packages/web-font-codecs-cli"
   },
   "homepage": "https://jlarmstrongiv.github.io/web-font-codecs/",
   "bugs": {

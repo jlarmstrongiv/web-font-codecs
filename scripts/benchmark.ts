@@ -9,7 +9,7 @@ import { createWoff1Codec } from 'woff1-codec';
 import type { Woff1EncodeOptions } from 'woff1-codec';
 import { createWoff2Codec } from 'woff2-codec';
 import type { Woff2EncodeOptions } from 'woff2-codec';
-import { validateFont } from 'web-font-codecs';
+import { validateFont } from 'web-font-codecs-core';
 import { wasmInputsHash } from './wasm-inputs.ts';
 
 process.chdir(fileURLToPath(new URL('../', import.meta.url)));

@@ -15,12 +15,12 @@ Convert fonts between TTF/OTF, WOFF and WOFF2 in Node or the browser, using Mozi
 ## Quick start
 
 ```sh
-npm install web-font-converter
+npm install web-font-codecs
 ```
 
 ```ts
 import { readFile, writeFile } from "node:fs/promises";
-import { createFontConverter } from "web-font-converter";
+import { createFontConverter } from "web-font-codecs";
 
 using converter = createFontConverter();
 const result = await converter.convert(await readFile("font.ttf"), {
@@ -32,18 +32,18 @@ await writeFile(`font.${result.extension}`, result.data);
 From the command line:
 
 ```sh
-npx web-font-converter-cli font.ttf -o font.woff2
+npx web-font-codecs-cli font.ttf -o font.woff2
 ```
 
 ## Packages
 
 | Package                                                               | Use it for                                      | License |
 | --------------------------------------------------------------------- | ----------------------------------------------- | ------- |
-| [`web-font-converter`](packages/web-font-converter/README.md)         | Converting between any two formats. Start here. | MIT     |
-| [`web-font-converter-cli`](packages/web-font-converter-cli/README.md) | Converting files from a terminal                | MIT     |
+| [`web-font-codecs`](packages/web-font-codecs/README.md)         | Converting between any two formats. Start here. | MIT     |
+| [`web-font-codecs-cli`](packages/web-font-codecs-cli/README.md) | Converting files from a terminal                | MIT     |
 | [`woff1-codec`](packages/woff1-codec/README.md)                       | WOFF only, including metadata and private data  | MPL 1.1 |
 | [`woff2-codec`](packages/woff2-codec/README.md)                       | WOFF2 only                                      | MIT     |
-| [`web-font-codecs`](packages/web-font-codecs/README.md)               | Shared types, errors and format detection       | MIT     |
+| [`web-font-codecs-core`](packages/web-font-codecs-core/README.md)               | Shared types, errors and format detection       | MIT     |
 | [`web-font-converter-web`](packages/web-font-converter-web/README.md) | The browser demo                                | MIT     |
 
 ## File sizes
@@ -103,7 +103,7 @@ Inside this repository, packages import each other's TypeScript source through t
 
 The repository's `.npmrc` disables lifecycle scripts with `ignore-scripts=true`, including our packages' `prepack` hooks. Explicit commands such as `npm run build:ts` and `npm test` still run. Before manually running `npm pack` or `npm publish` for a workspace, run `npm run build:ts` (or `npm run build` if WASM inputs changed). `npm run test:pack` builds explicitly before packing, and CI runs the build through `npm run check` before creating release tarballs. Browser installation is also an explicit setup step above.
 
-Pushing a `vX.Y.Z` tag runs `npm run check`, then publishes a GitHub Release with the package tarballs and deploys the demo to [GitHub Pages](https://jlarmstrongiv.github.io/web-font-codecs/). npm publishing is not automated.
+Pushing a `vX.Y.Z` tag runs `npm run check`, publishes a GitHub Release and the tested packages to npm using trusted publishing with provenance, then deploys the demo to [GitHub Pages](https://jlarmstrongiv.github.io/web-font-codecs/).
 
 ## License
 
