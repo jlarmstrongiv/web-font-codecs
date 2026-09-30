@@ -1,6 +1,6 @@
 {
   "name": "web-font-codecs-core",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "description": "Shared types, validation and WebAssembly runtime for web font codecs.",
   "license": "MIT",
