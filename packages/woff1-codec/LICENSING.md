@@ -32,4 +32,4 @@ It is not an additional licensing condition imposed on consumers.
 headers are unmodified. Distributors that extract the WASM from the package should
 carry forward a compliant source-availability arrangement and notices.
 
-[package-release-source]: https://github.com/jlarmstrongiv/web-font-codecs/tree/v0.1.0/
+[package-release-source]: https://github.com/jlarmstrongiv/web-font-codecs/tree/v0.3.1/

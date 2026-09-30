@@ -1,6 +1,6 @@
 {
   "name": "web-font-codecs-cli",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "type": "module",
   "description": "Local command line conversion between SFNT, WOFF1 and WOFF2.",
   "license": "MIT",
@@ -29,7 +29,7 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "web-font-codecs": "0.3.0"
+    "web-font-codecs": "0.3.1"
   },
   "bin": {
     "web-font-codecs-cli": "./dist/cli.js"

@@ -71,7 +71,7 @@ Median of 7 runs in Node. Timings vary by hardware and system load. Gains depend
 
 ## Develop
 
-Upstream sources are pinned Git submodules. Tools are pinned with [mise](https://mise.jdx.dev/). The Emscripten plugin needs Python set explicitly:
+Upstream sources are pinned Git submodules in `submodules/<github-owner>/<repository>`. Tools are pinned with [mise](https://mise.jdx.dev/). The Emscripten plugin needs Python set explicitly:
 
 ```sh
 git submodule update --init

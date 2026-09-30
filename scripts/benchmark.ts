@@ -104,7 +104,7 @@ const report = {
   environment:{node:process.version,v8:process.versions.v8},
   build,
   wasm:await Promise.all(['woff1-codec','woff2-codec'].map(async name=>{const b=await readFile(`packages/${name}/wasm/codec.wasm`);return{name,bytes:b.length,sha256:hash(b)};})),
-  upstreamSources:JSON.parse(await readFile('vendor/SOURCES.json','utf8')) as unknown,
+  upstreamSources:JSON.parse(await readFile('submodules/SOURCES.json','utf8')) as unknown,
   corpusProvenance:JSON.parse(await readFile('test/fixtures/corpus/provenance.json','utf8')) as unknown,
   originalFixtureProvenance:await readFile('test/fixtures/README.md','utf8'),
   scriptSha256:hash(await readFile(fileURLToPath(import.meta.url))),

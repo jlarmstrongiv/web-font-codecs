@@ -42,30 +42,30 @@ for (const name of selected ? [selected] : packages) {
     const source = `${root}/upstream-source`;
     await rm(source, { recursive: true, force: true });
     await mkdir(source, { recursive: true });
-    await cp('vendor/woff1', `${source}/mozilla-woff`, sourceCopyOptions);
+    await cp('submodules/bramstein/sfnt2woff-zopfli', `${source}/mozilla-woff`, sourceCopyOptions);
     await cp('LICENSE-MPL-1.1', `${source}/mozilla-woff/LICENSE-MPL-1.1`);
     await cp('native/woff1.c', `${source}/adapter.c`);
     await cp('native/compression.c', `${source}/compression.c`);
-    await cp('vendor/zopfli', `${source}/zopfli`, sourceCopyOptions);
-    await cp('vendor/zlib', `${source}/zlib`, sourceCopyOptions);
+    await cp('submodules/google/zopfli', `${source}/zopfli`, sourceCopyOptions);
+    await cp('submodules/madler/zlib', `${source}/zlib`, sourceCopyOptions);
     await cp('native/build-woff1.ts', `${source}/build-woff1.ts`);
     await cp('scripts/process.ts', `${source}/process.ts`);
     await cp('LICENSE', `${source}/LICENSE-MIT`);
     await cp('native/CHANGES.md', `${source}/CHANGES.md`);
     await cp('native/SOURCE-README.md', `${source}/README.md`);
-    await cp('vendor/SOURCES.json', `${source}/SOURCES.json`);
+    await cp('submodules/SOURCES.json', `${source}/SOURCES.json`);
     await writeFile(`${source}/mise.toml`, '[tools]\nnode = "24.21.0"\npython = "3.14.7"\nemsdk = "6.0.9"\n');
     await cp('LICENSE-MPL-1.1', `${root}/LICENSE`);
     await cp('LICENSE-MPL-1.1', `${source}/LICENSE-MPL-1.1`);
   }
   if (name === 'woff1-codec' || name === 'woff2-codec') {
-    await cp('vendor/toolchain-licenses', `${root}/upstream-source/toolchain-licenses`, { recursive: true });
+    await cp('submodules/toolchain-licenses', `${root}/upstream-source/toolchain-licenses`, { recursive: true });
   }
   if (name === 'woff2-codec') {
     await mkdir(`${root}/upstream-source/licenses`, { recursive: true });
-    await cp('vendor/woff2/LICENSE', `${root}/upstream-source/licenses/WOFF2-LICENSE`);
-    await cp('vendor/brotli/LICENSE', `${root}/upstream-source/licenses/BROTLI-LICENSE`);
-    await cp('vendor/SOURCES.json', `${root}/upstream-source/SOURCES.json`);
+    await cp('submodules/google/woff2/LICENSE', `${root}/upstream-source/licenses/WOFF2-LICENSE`);
+    await cp('submodules/google/brotli/LICENSE', `${root}/upstream-source/licenses/BROTLI-LICENSE`);
+    await cp('submodules/SOURCES.json', `${root}/upstream-source/SOURCES.json`);
   }
   console.log(`Built ${name}`);
 }

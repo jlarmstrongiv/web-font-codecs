@@ -20,4 +20,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Scope: MIT applies to authored code except WOFF1-specific files (packages/woff1-codec/ and native/woff1.c, native/build-woff1.ts), which are MPL 1.1. See LICENSE-MPL-1.1 and LICENSING.md. Third-party code in vendor/ and the compiled codecs retains its upstream licenses.
+Scope: MIT applies to authored code except WOFF1-specific files (packages/woff1-codec/ and native/woff1.c, native/build-woff1.ts), which are MPL 1.1. See LICENSE-MPL-1.1 and LICENSING.md. Third-party code in submodules/ and the compiled codecs retains its upstream licenses.

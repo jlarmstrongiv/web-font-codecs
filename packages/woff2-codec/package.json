@@ -1,6 +1,6 @@
 {
   "name": "woff2-codec",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "type": "module",
   "description": "Google WOFF2 encoder and decoder compiled from source to WebAssembly.",
   "license": "MIT",
@@ -34,7 +34,7 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "web-font-codecs-core": "0.3.0"
+    "web-font-codecs-core": "0.3.1"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

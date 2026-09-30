@@ -10,20 +10,20 @@ async function run(command: string, args: string[]): Promise<void> {
   await runProcess(command, args, { stdio: 'inherit' });
 }
 await mkdir('.cache/reference/corpus', { recursive: true });
-const zlib = ['adler32','compress','crc32','deflate','inflate','inffast','inftrees','trees','uncompr','zutil'].map(n => `vendor/zlib/${n}.c`);
-await run('cc', ['-O2','-Ivendor/zlib','-Dcompress2=codec_compress2','-c','vendor/woff1/woff.c','-o','.cache/reference/mozilla-woff.o']);
-const zopfli = (await readdir('vendor/zopfli/src/zopfli')).filter(f => f.endsWith('.c') && f !== 'zopfli_bin.c').sort().map(f => `vendor/zopfli/src/zopfli/${f}`);
-await run('cc', ['-O2','-Ivendor/zopfli/src/zopfli','-Ivendor/woff1','-Ivendor/zlib','native/reference.c','native/woff1.c','native/compression.c','.cache/reference/mozilla-woff.o',...zlib,...zopfli,'-lm','-o','.cache/reference/woff1']);
+const zlib = ['adler32','compress','crc32','deflate','inflate','inffast','inftrees','trees','uncompr','zutil'].map(n => `submodules/madler/zlib/${n}.c`);
+await run('cc', ['-O2','-Isubmodules/madler/zlib','-Dcompress2=codec_compress2','-c','submodules/bramstein/sfnt2woff-zopfli/woff.c','-o','.cache/reference/mozilla-woff.o']);
+const zopfli = (await readdir('submodules/google/zopfli/src/zopfli')).filter(f => f.endsWith('.c') && f !== 'zopfli_bin.c').sort().map(f => `submodules/google/zopfli/src/zopfli/${f}`);
+await run('cc', ['-O2','-Isubmodules/google/zopfli/src/zopfli','-Isubmodules/bramstein/sfnt2woff-zopfli','-Isubmodules/madler/zlib','native/reference.c','native/woff1.c','native/compression.c','.cache/reference/mozilla-woff.o',...zlib,...zopfli,'-lm','-o','.cache/reference/woff1']);
 // Also compare the untouched Mozilla/zlib path without the compression hook.
-await run('cc', ['-O2','-Ivendor/zopfli/src/zopfli','-Ivendor/woff1','-Ivendor/zlib','native/reference.c','native/woff1.c','native/compression.c','vendor/woff1/woff.c',...zlib,...zopfli,'-lm','-o','.cache/reference/mozilla-original']);
-const sources = (await Promise.all(['common','dec','enc'].map(async dir => (await readdir(`vendor/brotli/c/${dir}`)).filter(n => n.endsWith('.c')).sort().map(n => `vendor/brotli/c/${dir}/${n}`)))).flat();
+await run('cc', ['-O2','-Isubmodules/google/zopfli/src/zopfli','-Isubmodules/bramstein/sfnt2woff-zopfli','-Isubmodules/madler/zlib','native/reference.c','native/woff1.c','native/compression.c','submodules/bramstein/sfnt2woff-zopfli/woff.c',...zlib,...zopfli,'-lm','-o','.cache/reference/mozilla-original']);
+const sources = (await Promise.all(['common','dec','enc'].map(async dir => (await readdir(`submodules/google/brotli/c/${dir}`)).filter(n => n.endsWith('.c')).sort().map(n => `submodules/google/brotli/c/${dir}/${n}`)))).flat();
 const objects: string[] = [];
 for (const file of sources) {
   const output = `.cache/reference/${file.replaceAll('/','_')}.o`;
-  await run('cc', ['-O2','-Ivendor/brotli/c/include','-c',file,'-o',output]); objects.push(output);
+  await run('cc', ['-O2','-Isubmodules/google/brotli/c/include','-c',file,'-o',output]); objects.push(output);
 }
-const woff2 = ['table_tags','variable_length','woff2_common','woff2_dec','woff2_out','font','glyph','normalize','transform','woff2_enc'].map(n => `vendor/woff2/src/${n}.cc`);
-await run('c++', ['-O2','-std=c++11','-DWOFF2_REFERENCE','-Ivendor/woff2/include','-Ivendor/brotli/c/include','native/reference.c','native/woff2.cc',...woff2,...objects,'-o','.cache/reference/woff2']);
+const woff2 = ['table_tags','variable_length','woff2_common','woff2_dec','woff2_out','font','glyph','normalize','transform','woff2_enc'].map(n => `submodules/google/woff2/src/${n}.cc`);
+await run('c++', ['-O2','-std=c++11','-DWOFF2_REFERENCE','-Isubmodules/google/woff2/include','-Isubmodules/google/brotli/c/include','native/reference.c','native/woff2.cc',...woff2,...objects,'-o','.cache/reference/woff2']);
 for (const [name, create] of [['woff1', createWoff1Codec], ['woff2', createWoff2Codec]] as const) {
   using codec = await create();
   for (const font of ['OpenSans-Regular.ttf','Rochester.otf','corpus/variable-truetype.ttf','corpus/variable-cff2.otf','corpus/cjk.otf','corpus/color-colrv1.ttf']) {

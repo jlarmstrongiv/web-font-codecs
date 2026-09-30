@@ -17,7 +17,7 @@
     "url": "https://github.com/google/brotli",
     "revision": "028fb5a23661f123017c060daa546b55cf4bde29",
     "license": "MIT",
-    "notes": "Latest eligible stable release; independently pinned at vendor/brotli instead of the unused WOFF2 nested submodule. Native/WASM reference parity validates compatibility.",
+    "notes": "Latest eligible stable release; independently pinned at submodules/google/brotli instead of the unused WOFF2 nested submodule. Native/WASM reference parity validates compatibility.",
     "tag": "v1.2.0",
     "date": "2025-10-27T16:03:32Z"
   },

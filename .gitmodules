@@ -1,15 +1,15 @@
-[submodule "vendor/woff1"]
-	path = vendor/woff1
+[submodule "submodules/bramstein/sfnt2woff-zopfli"]
+	path = submodules/bramstein/sfnt2woff-zopfli
 	url = https://github.com/bramstein/sfnt2woff-zopfli
-[submodule "vendor/woff2"]
-	path = vendor/woff2
+[submodule "submodules/google/woff2"]
+	path = submodules/google/woff2
 	url = https://github.com/google/woff2
-[submodule "vendor/brotli"]
-	path = vendor/brotli
+[submodule "submodules/google/brotli"]
+	path = submodules/google/brotli
 	url = https://github.com/google/brotli
-[submodule "vendor/zlib"]
-	path = vendor/zlib
+[submodule "submodules/madler/zlib"]
+	path = submodules/madler/zlib
 	url = https://github.com/madler/zlib
-[submodule "vendor/zopfli"]
-	path = vendor/zopfli
+[submodule "submodules/google/zopfli"]
+	path = submodules/google/zopfli
 	url = https://github.com/google/zopfli
