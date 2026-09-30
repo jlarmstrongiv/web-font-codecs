@@ -1,6 +1,6 @@
 {
   "name": "woff1-codec",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "type": "module",
   "description": "Mozilla WOFF1 encoder and decoder compiled from source to WebAssembly.",
   "license": "MPL-1.1",
@@ -34,7 +34,7 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "web-font-codecs-core": "0.2.1"
+    "web-font-codecs-core": "0.3.0"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
