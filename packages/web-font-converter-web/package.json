@@ -20,7 +20,7 @@
     "pretty-ms": "9.3.1",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "web-font-codecs": "0.1.0"
+    "web-font-codecs": "0.2.0"
   },
   "devDependencies": {
     "@types/react": "19.3.0",

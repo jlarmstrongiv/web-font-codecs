@@ -1,6 +1,6 @@
 {
   "name": "web-font-codecs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "Typed browser and Node conversion between SFNT, WOFF1 and WOFF2.",
   "license": "MIT",
@@ -29,9 +29,9 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "web-font-codecs-core": "0.1.0",
-    "woff1-codec": "0.1.0",
-    "woff2-codec": "0.1.0"
+    "web-font-codecs-core": "0.2.0",
+    "woff1-codec": "0.2.0",
+    "woff2-codec": "0.2.0"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
