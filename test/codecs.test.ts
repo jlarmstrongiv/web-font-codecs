@@ -319,3 +319,26 @@ test('converter initialization rejects invalid WASM before any conversion', asyn
     await assert.rejects(createFontConverter({ [codec]: { wasm: new Uint8Array() } }), errorCode('WASM_INIT'));
   }
 });
+
+test('converter loads WOFF2 while WOFF1 is still pending', async () => {
+  const firstBytes = await readFile('packages/woff1-codec/wasm/codec.wasm');
+  const secondBytes = await readFile('packages/woff2-codec/wasm/codec.wasm');
+  let release!: (bytes: Uint8Array<ArrayBuffer>) => void;
+  const first = new Promise<Uint8Array<ArrayBuffer>>(resolve => { release = resolve; });
+  let started!: () => void;
+  const secondStarted = new Promise<void>(resolve => { started = resolve; });
+  const second = new ReadableStream<Uint8Array>({
+    pull(controller) { started(); controller.enqueue(secondBytes); controller.close(); },
+  }, { highWaterMark: 0 });
+  const initialization = createFontConverter({ woff1: { wasm: first }, woff2: { wasm: second } });
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  try {
+    await Promise.race([secondStarted, new Promise<never>((_, reject) => {
+      timer = setTimeout(() => reject(new Error('WOFF2 initialization waited for WOFF1')), 2000);
+    })]);
+  } finally {
+    clearTimeout(timer);
+    release(firstBytes);
+    using converter = await initialization;
+  }
+});

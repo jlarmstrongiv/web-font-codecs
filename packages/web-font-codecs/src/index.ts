@@ -1,7 +1,7 @@
 import { detectFormat, FontCodecError, validateFont } from 'web-font-codecs-core';
 import type { CodecInitOptions, CodecLifecycle, CodecResult, FontFormat } from 'web-font-codecs-core';
 import { createWoff1Codec, type Woff1EncodeOptions } from 'woff1-codec';
-import { createWoff2Codec, type Woff2Codec, type Woff2EncodeOptions } from 'woff2-codec';
+import { createWoff2Codec, type Woff2EncodeOptions } from 'woff2-codec';
 export { detectFormat, FontCodecError } from 'web-font-codecs-core';
 export type { FontFormat, CodecInitOptions, CodecLimits, CodecResult, CodecErrorCode, WasmSource } from 'web-font-codecs-core';
 export type { Woff1EncodeOptions } from 'woff1-codec';
@@ -27,14 +27,17 @@ export interface FontConverter extends CodecLifecycle {
   convert(input: Uint8Array, options: ConversionOptions): ConversionResult;
 }
 export async function createFontConverter(options: ConverterOptions = {}): Promise<FontConverter> {
-  const one = await createWoff1Codec(options.woff1);
-  let two: Woff2Codec;
-  try {
-    two = await createWoff2Codec(options.woff2);
-  } catch (error) {
-    one[Symbol.dispose]();
-    throw error;
+  const [first, second] = await Promise.allSettled([
+    createWoff1Codec(options.woff1),
+    createWoff2Codec(options.woff2),
+  ]);
+  if (first.status === 'rejected' || second.status === 'rejected') {
+    if (first.status === 'fulfilled') first.value[Symbol.dispose]();
+    if (second.status === 'fulfilled') second.value[Symbol.dispose]();
+    if (first.status === 'rejected') throw first.reason;
+    if (second.status === 'rejected') throw second.reason;
   }
+  const one = first.value, two = second.value;
   let disposed = false;
   const dispose = () => {
     if (disposed) return;
