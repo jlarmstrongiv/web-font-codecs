@@ -104,11 +104,13 @@ export async function createRuntime(source: WasmSource, options: CodecLimits = {
   try {
     let bytes = await source;
     if (typeof bytes === 'string' || bytes instanceof URL) bytes = await fetch(bytes);
-    if (bytes instanceof ReadableStream) bytes = new Response(bytes);
     if (bytes instanceof Response) {
       if (!bytes.ok) throw new Error(`WASM request failed: HTTP ${bytes.status}`);
-      bytes = await bytes.arrayBuffer();
+      if (!bytes.body) throw new Error('WASM response has no body');
+      bytes = bytes.body;
     }
+    // Re-wrap so streaming compilation never depends on the server's Content-Type.
+    if (bytes instanceof ReadableStream) bytes = await WebAssembly.compileStreaming(new Response(bytes, { headers: { 'content-type': 'application/wasm' } }));
     const imports = { wasi_snapshot_preview1: {
       proc_exit: (code: number): never => { throw new Error(`WASM exited (${code})`); },
       fd_write: () => 0, fd_close: () => 0, fd_seek: () => 0,
