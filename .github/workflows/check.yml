@@ -28,6 +28,7 @@ jobs:
         with:
           version: 2026.9.10
           install: false
+          env: false
           cache: false
       - name: Provision pinned toolchain
         run: |
